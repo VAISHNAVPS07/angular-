@@ -1,0 +1,3819 @@
+<div class="patient-entry-container">
+    <div class="patient-entry-box">
+        <h2>Patient Entry Form</h2>
+
+        <form ng-submit="submitPatientEntry()" name="patientEntryForm" novalidate>
+
+        <div class="container mt-4">
+        <div class="container p-3 border">
+        <div class="row">
+            <div class="col-md-4">
+                <label>Disease ID:</label>
+                <input type="text" class="form-control" ng-model="patient.diseaseID" >
+            </div>
+            <div class="col-md-4">
+                <label>Hospital No.:</label>
+                <input type="text" class="form-control" ng-model="patient.hospitalNo">
+            </div>
+            <div class="col-md-4">
+                <label>Name:</label>
+                <input type="text" class="form-control" ng-model="patient.name" >
+            </div>
+            <div class="col-md-4 mt-3">
+                <label>DOB:</label>
+                <input type="date" class="form-control" ng-model="patient.dob" >
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <label>Sex:</label>
+                <div>
+                    <label><input type="radio" ng-model="patient.sex" value="M"> Male</label>
+                    <label><input type="radio" ng-model="patient.sex" value="F"> Female</label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>Phone No.:</label>
+                <input type="text" class="form-control" ng-model="patient.phoneNo" >
+            </div>
+            <div class="col-md-4">
+                <label>IP No.:</label>
+                <input type="text" class="form-control" ng-model="patient.ipNo">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <label>Dept/Unit:</label>
+                <select class="form-control" ng-model="patient.dept">
+                    <option value="">Select</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="Neurology">Neurology</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label>Ward/OPD:</label>
+                <select class="form-control" ng-model="patient.wardOpd">
+                    <option value="">Select</option>
+                    <option value="Ward">Ward</option>
+                    <option value="Opd">Opd</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label>Date:</label>
+                <input type="date" class="form-control" ng-model="patient.date">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <label>Consultant Doctor:</label>
+                <textarea class="form-control" ng-model="patient.consultantDoctor"></textarea>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <input type="checkbox" ng-model="patient.retrieveLastVisit"> Retrieve last visited information?
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="container">
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+        <div class="row">
+            <div class="col-md-4" style="padding-top: 1%">
+                <div class="form-group form-inline">
+                    <div class="col-md-4">
+                        <label for="txtPatientID">Hospital No. :</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="txtPatientID" ng-model="patient.hospitalNo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group form-inline">
+                    <div class="col-md-4">
+                        <input type="checkbox" id="DataRetriew" ng-model="patient.retrieveInfo">&nbsp;&nbsp;Retrieve last visited information?
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+        <div class="row">
+            <div class="col-md-8" style="padding-top: 1%; padding-bottom: 0.5%">
+                <div class="form-group form-inline">
+                    <div class="col-md-4">
+                        <label>Quality of Acoustic Window :</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="radio" name="acousticQuality" value="Excellent" ng-model="patient.acousticQuality"> Excellent
+                        <input type="radio" name="acousticQuality" value="Good" ng-model="patient.acousticQuality"> Good
+                        <input type="radio" name="acousticQuality" value="Poor" ng-model="patient.acousticQuality"> Poor
+                        <input type="radio" name="acousticQuality" value="Very Poor" ng-model="patient.acousticQuality"> Very Poor
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+
+        <div class="container" style="background-color: white; font-size: 13px; border: outset; width: 80%; margin: 20px auto; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+            <div class="row">
+                <div class="col-md-12 text-center mb-3" style="padding-left: 250px;">
+                    <u><b>LEFT ATRIUM</b></u>
+                </div>
+            </div>
+        
+            <div class="row" >
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="txtLeftAPD">A-P DIMENSION</label>
+                        <input type="text" class="form-control" id="txtLeftAPD">
+                        <small class="form-text text-muted">mm (19-40)</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="txtLeft1SD">1-S DIMENSION</label>
+                        <input type="text" class="form-control" id="txtLeft1SD">
+                        <small class="form-text text-muted">mm (&lt;50-55)</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="txtLeftArea">AREA</label>
+                        <input type="text" class="form-control" id="txtLeftArea">
+                        <small class="form-text text-muted">cm</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="txtLeftVolume">VOLUME</label>
+                        <input type="text" class="form-control" id="txtLeftVolume">
+                        <small class="form-text text-muted">ml</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- LV-RV section -->
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+        <div class="row">
+        <div class="col-md-12" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-sm-12">
+                    <center><u><b>LV</b></u></center>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtIVSSD">IVS: S/D</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtIVSSD">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtPWSD">PW: S/D</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtPWSD">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtEDV">EDV</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtEDV">
+                </div>
+                <div class="col-md-4">
+                    <label>ml</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtESV">ESV</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtESV">
+                </div>
+                <div class="col-md-4">
+                    <label>ml</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtALEF">ALEF</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtALEF">
+                </div>
+                <div class="col-md-4">
+                    <label>%</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtSV">SV</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtSV">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtCO">CO</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtCO">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtEDD">EDD</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtEDD">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtESD">ESD</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtESD">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtEF">EF</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtEF">
+                </div>
+                <div class="col-md-4">
+                    <label>%</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtFS">FS</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtFS">
+                </div>
+                <div class="col-md-4">
+                    <label>%</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtHR">HR</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtHR">
+                </div>
+                <div class="col-md-4">
+                    <label>bpm</label>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+        <!-- ================================================================================================================== -->
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+        <div class="row">
+        <div class="col-md-12" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-sm-12">
+                    <center><u><b>RV</b></u></center>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtRVFArea">RV Fractional Area</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtRVFArea">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtRvotFrac">RVOT FRACTION</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtRvotFrac">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtFreeWall">FREE WALL</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtFreeWall">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtRVEF">EF</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtRVEF">
+                </div>
+                <div class="col-md-4">
+                    <label>%</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtTapse">TAPSE</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px;">
+                    <input type="text" class="form-control" id="txtTapse">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <!-- ======================================================================== -->
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+        <div class="row">
+        <div class="col-md-12" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-sm-12">
+                    <center><u><b>AORTA</b></u></center>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtRoot">ROOT</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px;">
+                    <input type="text" class="form-control" id="txtRoot">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtSinJunction">SINOTUBULAR JUNCTION</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px;">
+                    <input type="text" class="form-control" id="txtSinJunction">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtAscAorta">ASCENDING AORTA</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px;">
+                    <input type="text" class="form-control" id="txtAscAorta">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtArch">ARCH</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px;">
+                    <input type="text" class="form-control" id="txtArch">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtDesAorta">DESCENDING AORTA</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px;">
+                    <input type="text" class="form-control" id="txtDesAorta">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtAbdAorta">ABDOMINAL AORTA</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px;">
+                    <input type="text" class="form-control" id="txtAbdAorta">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtMacs">MACS</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px;">
+                    <input type="text" class="form-control" id="txtMacs">
+                </div>
+                <div class="col-md-4">
+                    <label>mm</label>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <!-- ===============================MITRAL VALUE AORTIC VALVE============== -->
+
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+        <div class="row">
+        <div class="col-md-12" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-sm-12">
+                    <center><u><b>Mitral valve</b></u></center>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="col-md-4">
+        <label>DT:</label>
+        <select class="form-control" ng-model="patient.wardOpd">
+            <option value="">Select</option>
+            <option value="E>A">E>A</option>
+            <option value="A>E">A>E</option>
+            <option value="E>>A">E>>A</option>
+            <option value="E=A">E=A</option>
+            <option value="E only">E only</option>
+
+        </select>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+        <div class="form-group form-inline">
+            <div class="col-md-4">
+                <label for="txtPV">PV</label>
+            </div>
+            <div class="col-md-4" style="padding-bottom: 12px;">
+                <input type="text" class="form-control" id="txtPV">
+            </div>
+            <div class="col-md-4">
+                <label>m/s</label>
+            </div>
+        </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+        <div class="form-group form-inline">
+            <div class="col-md-4">
+                <label for="txtMVE">MV-E</label>
+            </div>
+            <div class="col-md-4" style="padding-bottom: 12px;">
+                <input type="text" class="form-control" id="txtMVE">
+            </div>
+            <div class="col-md-4">
+                <label>m/s</label>
+            </div>
+        </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+        <div class="form-group form-inline">
+            <div class="col-md-4">
+                <label for="txtIVRT">IVRT</label>
+            </div>
+            <div class="col-md-4" style="padding-bottom: 12px;">
+                <input type="text" class="form-control" id="txtIVRT">
+            </div>
+            <div class="col-md-4">
+                <label>ml</label>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="col-md-6" style="padding-top: 1%">
+        <div class="form-group form-inline">
+            <div class="col-md-4">
+                <label for="txtIVCT">IVCT</label>
+            </div>
+            <div class="col-md-4" style="padding-bottom: 12px;">
+                <input type="text" class="form-control" id="txtIVCT">
+            </div>
+            <div class="col-md-4">
+                <label>ml</label>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtMVObyPHT">MVO by PHT</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px;">
+                    <input type="text" class="form-control" id="txtMVObyPHT">
+                </div>
+                <div class="col-md-4">
+                    <label></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtMVObyECHO">MVO by 2D ECHO</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px;">
+                    <input type="text" class="form-control" id="txtMVObyECHO">
+                </div>
+                <div class="col-md-4">
+                    <label>cm</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtMIMPG">MPG</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px;">
+                    <input type="text" class="form-control" id="txtMIMPG">
+                </div>
+                <div class="col-md-4">
+                    <label>mmHg</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label for="txtMIPPG">PPG</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px;">
+                    <input type="text" class="form-control" id="txtMIPPG">
+                </div>
+                <div class="col-md-4">
+                    <label>mmHg</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6" style="padding-top: 1%">
+                <div class="form-group form-inline">
+                    <div class="col-md-4">
+                        <label for="txtMVPros">Prosthetic Valve</label>
+                    </div>
+                    <div class="col-md-4" style="padding-bottom: 12px;">
+                        <input type="text" class="form-control" id="txtMVPros">
+                    </div>
+                    <div class="col-md-4">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        </div>
+        </div>
+
+
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+        <div class="row">
+        <div class="col-md-12" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-sm-12">
+                    <center><u><b>AORTIC Valve</b></u></center>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label>PV</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtAOPV" style="width:100%">
+                </div>
+                <div class="col-md-4">
+                    <label>m/s</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label>MACS</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtAOMacs" style="width:100%">
+                </div>
+                <div class="col-md-4">
+                    <label>cm</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label>PPG</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtAOPPG" style="width:100%">
+                </div>
+                <div class="col-md-4">
+                    <label>mmHg</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label>MPG</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtAOMPG" style="width:100%">
+                </div>
+                <div class="col-md-4">
+                    <label>mmHg</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label>ET</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtAOET" style="width:100%">
+                </div>
+                <div class="col-md-4">
+                    <label>ms</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label>VTI</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtAOVTI" style="width:100%">
+                </div>
+                <div class="col-md-4">
+                    <label>cm</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    <label>Prosthetic Valve</label>
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px">
+                    <input type="text" class="form-control" id="txtAOProcs" style="width:100%">
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <!-- ================================TRICUSPID VALVE==================================== -->
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+        <div class="row">
+        <div class="col-md-12" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-sm-12">
+                    <center> <u><b> TRICUSPID VALVE </b></u></center>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">DT</div>
+                <div class="col-md-4"><input class="form-control" type="text" id="txtTRDT" style="width: 100%"></div>
+                <div class="col-md-4">mm</div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">TRICUSPID ANNULUS DIMENSION</div>
+                <div class="col-md-4"><input class="form-control" type="text" id="txtTRANNDIM" style="width: 100%"></div>
+                <div class="col-md-4">mm</div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">PV</div>
+                <div class="col-md-4"><input class="form-control" type="text" id="txtTRPV" style="width: 100%"></div>
+                <div class="col-md-4">m/s</div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">TRICUSPID VALVE AREA BY PHT</div>
+                <div class="col-md-4"><input class="form-control" type="text" id="txtTRVALAR" style="width: 100%"></div>
+                <div class="col-md-4">cm<sup>2</sup></div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">TV-E</div>
+                <div class="col-md-4"><input class="form-control" type="text" id="txtTRTVE" style="width: 100%"></div>
+                <div class="col-md-4">mm</div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">RV MPI</div>
+                <div class="col-md-4"><input class="form-control" type="text" id="TxtTRRVMPI" style="width: 100%"></div>
+                <div class="col-md-4">mm</div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">TV-A</div>
+                <div class="col-md-4"><input class="form-control" type="text" id="txtTRTVA" style="width: 100%"></div>
+                <div class="col-md-4">mm</div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">MPG</div>
+                <div class="col-md-4"><input class="form-control" type="text" id="txtTRMPG" style="width: 100%"></div>
+                <div class="col-md-4">mmHg</div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">PPG</div>
+                <div class="col-md-4"><input class="form-control" type="text" id="txtTRPPG" style="width: 100%"></div>
+                <div class="col-md-4">mmHg</div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">Prosthetic Valve</div>
+                <div class="col-md-4" style="padding-bottom: 12px"><input class="form-control" type="text" id="txtTRPROS" style="width: 100%"></div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">RVSP=</div>
+                <div class="col-md-4" style="padding-bottom: 12px"><input class="form-control" type="text" id="txtTRRVSP" style="width: 100%"></div>
+                <div class="col-md-4">+RAP mmHg</div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+
+        <!-- =======================PULMONARY VALVE=========================== -->
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4"></div>
+                <div class="col-md-6">
+                    <b><u>PULMONARY VALVE</u></b>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    Pulmonary Annulus
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtPULAN" style="width: 100%;">
+                </div>
+                <div class="col-md-4">
+                    mm
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    PV
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtPULPV" style="width: 100%;">
+                </div>
+                <div class="col-md-4">
+                    m/s
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    Pulmonary Dimension
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtPULDI" style="width: 100%;">
+                </div>
+                <div class="col-md-4">
+                    mm
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    AT
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtPULAT" style="width: 100%;">
+                </div>
+                <div class="col-md-4">
+                    ms
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    MPA
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtPULMPA" style="width: 100%;">
+                </div>
+                <div class="col-md-4">
+                    mm
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    PPG
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtPPG" style="width: 100%;">
+                </div>
+                <div class="col-md-4">
+                    mmHg
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    LPA
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtLPA" style="width: 100%;">
+                </div>
+                <div class="col-md-4">
+                    mm
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    MPG
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtPULMPG" style="width: 100%;">
+                </div>
+                <div class="col-md-4">
+                    mmHg
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    RPA
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtPULRPA" style="width: 100%;">
+                </div>
+                <div class="col-md-4">
+                    mm
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    Prosthetic Valve
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtPULPROS" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    VELOCITY-LPA
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="txtPULVELLPA" style="width: 100%;">
+                </div>
+                <div class="col-md-4">
+                    m/s
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding-top: 1%">
+            <div class="form-group form-inline">
+                <div class="col-md-4">
+                    VELOCITY-RPA
+                </div>
+                <div class="col-md-4" style="padding-bottom: 12px">
+                    <input type="text" class="form-control" id="txtPULVELRPA" style="width: 100%;">
+                </div>
+                <div class="col-md-4">
+                    m/s
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+            <div class="row">
+                <div class="col-md-12" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-sm-12">
+                            <center><u><b>RAP</b></u></center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            IVC-MAX/MIN
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtRAPIVC" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            mm
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            HEPATIC VEIN S
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtHEPS" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            m/s
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            HEPATIC VEIN D
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtHEPD" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            m/s
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            REVERSAL FLOW VELOCITY
+                        </div>
+                        <div class="col-md-4" style="padding-bottom: 12px">
+                            <input type="text" class="form-control" id="txtFLOW" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            m/s
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--  "Type of Heart Disease" -->
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+            <div class="row">
+                <div class="form-group form-inline">
+                    <div class="col-md-4">
+                        <b><u>
+                            <input type="checkbox" id="CheckBox1" onchange="chk_CheckedChanged()">
+                            Check if Patient has any Heart Disease
+                        </u></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Type of Heart Disease Section -->
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+            <div class="row">
+                <div class="form-group form-inline">
+                    <div class="col-md-4">
+                        <b><u>Type of Heart Disease:</u></b>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="form-group form-inline">
+                    <div class="col-md-4">
+                        <input type="checkbox" id="checkCongenital" onclick="popup(this)">
+                        Congenital Heart Disease
+                        <button id="buttonOpen" style="display: none;"></button>
+        
+                        <!-- Modal Popup (Example using Bootstrap) -->
+                        <div id="Panel1" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Congenital Heart Disease</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Details about Congenital Heart Disease.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <script type="text/javascript">
+                            function popup(checkbox) {
+                                var uname = document.getElementById('txtPatientID').value;
+                                if (uname == "") {
+                                    alert("Enter Patient ID!");
+                                    checkbox.checked = false;
+                                } else {
+                                    if (checkbox.checked) {
+                                        $('#Panel1').modal('show');
+                                        return true;
+                                    }
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+        
+                <div class="form-group form-inline">
+                    <div class="col-md-4">
+                        <input type="checkbox" id="CheckValvular" onclick="popup1(this)">
+                        Valvular Heart Disease
+                        <button id="buttonOpen1" style="display: none;"></button>
+        
+                        <!-- Modal Popup (Example using Bootstrap) -->
+                        <div id="Panel2" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Valvular Heart Disease</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Details about Valvular Heart Disease.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <script type="text/javascript">
+                            function popup1(checkbox) {
+                                var uname = document.getElementById('txtPatientID').value;
+                                if (uname == "") {
+                                    alert("Enter Patient ID!");
+                                    checkbox.checked = false;
+                                } else {
+                                    if (checkbox.checked) {
+                                        $('#Panel2').modal('show');
+                                        return true;
+                                    }
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+        
+                <div class="form-group form-inline">
+                    <div class="col-md-4">
+                        <input type="checkbox" id="CheckIschemic" onclick="popup2(this)">
+                        Ischemic Heart Disease
+                        <button id="buttonIschemic" style="display: none;"></button>
+        
+                        <!-- Modal Popup (Example using Bootstrap) -->
+                        <div id="Panel3" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Ischemic Heart Disease</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Details about Ischemic Heart Disease.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <script type="text/javascript">
+                            function popup2(checkbox) {
+                                var uname = document.getElementById('txtPatientID').value;
+                                if (uname == "") {
+                                    alert("Enter Patient ID!");
+                                    checkbox.checked = false;
+                                } else {
+                                    if (checkbox.checked) {
+                                        $('#Panel3').modal('show');
+                                        return true;
+                                    }
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="form-group form-inline">
+                    <div class="col-md-4">
+                        <input type="checkbox" id="chkCardiomyopathy" onclick="popup4(this)">
+                        Cardiomyopathy Heart Disease
+                        <button id="buttonCardiomyopathy" style="display: none;"></button>
+        
+                        <!-- Modal Popup (Example using Bootstrap) -->
+                        <div id="Panel4" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Cardiomyopathy Heart Disease</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Details about Cardiomyopathy Heart Disease.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <script type="text/javascript">
+                            function popup4(checkbox) {
+                                var uname = document.getElementById('txtPatientID').value;
+                                if (uname == "") {
+                                    alert("Enter Patient ID!");
+                                    checkbox.checked = false;
+                                } else {
+                                    if (checkbox.checked) {
+                                        $('#Panel4').modal('show');
+                                        return true;
+                                    }
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+        
+                <div class="form-group form-inline">
+                    <div class="col-md-4">
+                        <input type="checkbox" id="chkOtherHeartDisease" onclick="popup5(this)">
+                        Other Heart Disease
+                        <button id="buttonOther" style="display: none;"></button>
+        
+                        <!-- Modal Popup (Example using Bootstrap) -->
+                        <div id="Panel5" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Other Heart Disease</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Details about Other Heart Disease.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <script type="text/javascript">
+                            function popup5(checkbox) {
+                                var uname = document.getElementById('txtPatientID').value;
+                                if (uname == "") {
+                                    alert("Enter Patient ID!");
+                                    checkbox.checked = false;
+                                } else {
+                                    if (checkbox.checked) {
+                                        $('#Panel5').modal('show');
+                                        return true;
+                                    }
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overall Findings Section -->
+        <div class="container" id="OveralFindings" style="background-color: white; font-size: 13px; border: outset">
+            <div class="row">
+                <div class="col-md-12" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-2">
+                            <label for="txtOveralFindings">Overall Findings</label>
+                        </div>
+                        <div class="col-md-10" style="padding-bottom: 12px">
+                            <textarea class="form-control" id="txtOveralFindings" style="width: 88%;" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Impression Section -->
+        <div class="container" id="FinalImpression" style="background-color: white; font-size: large; border: outset">
+            <div class="row">
+                <div class="col-md-12" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-2">
+                            <label for="txtFinalImpression">Final Impression</label>
+                        </div>
+                        <div class="col-md-12" style="padding-bottom: 12px">
+                            <textarea class="form-control" id="txtFinalImpression" style="width: 500%; height: 109px; overflow: auto;" rows="2" cols="20"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONSULTANT/UNIT Section -->
+        <div class="container" id="CONSULTANT" style="background-color: white; font-size: 13px; border: outset">
+            <div class="row">
+                <div class="col-md-12" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-2">
+                            <label for="txtConsultantUnit">CONSULTANT/UNIT</label>
+                        </div>
+                        <div class="col-md-10" style="padding-bottom: 12px">
+                            <textarea class="form-control" id="txtConsultantUnit" style="height: 58px; width: 500%;" ></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="PERFORMEDBY" style="background-color: white; font-size: 13px; border: outset">
+            <div class="row">
+                <div class="col-md-4" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-5">
+                            <label for="drpPerformedBy">PERFORMED BY<span class="mandatory">*</span></label>
+                        </div>
+                        <div class="col-md-7" style="padding-bottom: 12px">
+                            <select id="drpPerformedBy" class="form-control" style="width: 100%;">
+                                <option value="" selected>Select</option>
+                                <!-- Options will be populated dynamically -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-5">
+                            <label for="txtEnteredBy">ENTERED BY</label>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" id="txtEnteredBy" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container" style="background-color: white; font-size: 13px; border: outset">
+            <div class="row">
+                <div class="col-md-12" style="padding-top: 1%">
+                    <center>
+                        <div class="col-md-3"></div>
+                    </center>
+                    <div class="col-md-6" style="padding-bottom: 12px">
+                        <center>
+                            <button id="btnSave" style="background-color: #561f03; margin-bottom: 10px; color: white;" class="btn">
+                                Save
+                            </button>
+                            <button id="btnSubmit" style="font-weight: 700; background-color: #561f03; margin-bottom: 10px; color: white;" class="btn">
+                                Submit
+                            </button>
+                            <button id="btnPdf" style="font-weight: 700; margin-bottom: 10px; background-color: rgb(95, 0, 0);color: white;" class="btn">
+                                Generate PDF
+                            </button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="Div2" class="container" style="background-color: white; font-size: 13px; border: outset; display:none;">
+            <div class="row">
+                <div class="col-md-12" style="padding-top: 1%">
+                    <center>
+                        <div class="col-md-3"></div>
+                    </center>
+                    <div class="col-md-6" style="padding-bottom: 12px">
+                        <center>
+                            <button id="Button5" style="font-weight: 700;" class="btn">Rework</button>
+                            <button id="Button6" style="font-weight: 700;" class="btn">Approve</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Panel Section -->
+        <div id="Panel1" style="bottom: 10px; overflow: auto;">
+            <div class="container" style="background-color: white; font-size: 13px;" id="divCont" onscroll="v">
+                <div id="divCongenital">
+                    <!-- Congenital Types Section -->
+                    <div class="container" style="background-color: white; font-size: 13px; border: outset">
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-md-4">
+                                    <b><u>CONGENITAL TYPES</u></b>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Checkbox Rows -->
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-md-4">
+                                    <input type="checkbox" id="chkASD" style="font-weight: 100;"> ASD
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-md-4">
+                                    <input type="checkbox" id="chkVSD" style="font-weight: 100;"> VSD
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-md-4">
+                                    <input type="checkbox" id="chkPDA" style="font-weight: 100;"> PDA
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-md-4">
+                                    <input type="checkbox" id="chkTOF" style="font-weight: 100;"> TOF
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-md-4">
+                                    <input type="checkbox" id="chkTGA" style="font-weight: 100;"> TGA
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-md-4">
+                                    <input type="checkbox" id="chkEbstein_Anomaly" style="font-weight: 100;"> Ebstein Anomaly
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-md-4">
+                                    <input type="checkbox" id="chkTA" style="font-weight: 100;"> TA
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-md-4">
+                                    <input type="checkbox" id="chkDORV" style="font-weight: 100;"> DORV
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fetal Checkbox and Radio Buttons -->
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-md-2">
+                                    <input type="checkbox" id="chkFetal" style="font-weight: 100;"> Fetal
+                                </div>
+                                <div id="rdbtnfetal" style="display: none;">
+                                    <label><input type="radio" name="fetal" value="Normal"> Normal</label>
+                                    <label><input type="radio" name="fetal" value="Abnormal"> Abnormal</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Others Checkbox and Textbox -->
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-md-2">
+                                    <input type="checkbox" id="chkOTHERS" style="font-weight: 100;"> OTHERS
+                                </div>
+                                <div class="col-md-1" style="margin-bottom: 12px;">
+                                    <textarea class="form-control" id="txtConOther" style="display: none;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- QP and QS Section -->
+                    <div class="container" style="background-color: white; font-size: 13px; border: solid; border-color: lightgray">
+                        <div class="row">
+                            <div class="col-md-6" style="padding-top: 1%">
+                                <div class="form-group form-inline">
+                                    <div class="col-md-2">
+                                        <b>QP</b>
+                                    </div>
+                                    <div class="col-md-4" style="margin-bottom: 12px;">
+                                        <input type="text" class="form-control" id="txtQP" style="width: 100%;">
+                                    </div>
+                                    <div class="col-md-4">
+                                        ml
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="padding-top: 1%">
+                                <div class="form-group form-inline">
+                                    <div class="col-md-2">
+                                        <b>QS</b>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" id="txtQS" style="width: 100%;">
+                                    </div>
+                                    <div class="col-md-4">
+                                        ml
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aortic Arch Section -->
+                    <div class="container" style="background-color: white; font-size: 13px; border: solid; border-color: lightgray">
+                        <div class="row">
+                            <div class="col-md-6" style="padding-top: 1%">
+                                <div class="form-group form-inline">
+                                    <div class="col-md-5">
+                                        <b>AORTIC ARCH</b>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <label><input type="radio" name="aortic" value="LEFT"> LEFT</label>
+                                        <label><input type="radio" name="aortic" value="RIGHT"> RIGHT</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Situs Section -->
+                    <div class="container" style="background-color: white; font-size: 13px; border: solid; border-color: lightgray">
+                        <div class="row">
+                            <div class="col-md-6" style="padding-top: 1%">
+                                <div class="form-group form-inline">
+                                    <div class="col-md-5">
+                                        <b>SITUS</b>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <label><input type="radio" name="situs" value="Solitus"> Solitus</label>
+                                        <label><input type="radio" name="situs" value="Inversus"> Inversus</label>
+                                        <label><input type="radio" name="situs" value="Ambiguous"> Ambiguous</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Position Section -->
+                    <div class="container" style="background-color: white; font-size: 13px; border: solid; border-color: lightgray">
+                        <div class="row">
+                            <div class="col-md-6" style="padding-top: 0%">
+                                <div class="form-group form-inline">
+                                    <div class="col-md-4">
+                                        <b>POSITION</b>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label><input type="radio" name="position" value="Levocardia"> Levocardia</label>
+                                        <label><input type="radio" name="position" value="Dextrocardia"> Dextrocardia</label>
+                                        <label><input type="radio" name="position" value="Mesocardia"> Mesocardia</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atrioventricular Relation Section -->
+                    <div class="container" style="background-color: white; font-size: 13px; border: solid; border-color: lightgray">
+                        <div class="row">
+                            <div class="col-md-6" style="padding-top: 1%">
+                                <div class="form-group form-inline">
+                                    <div class="col-md-5">
+                                        <b>ATRIOVENTRICULAR RELATION</b>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <label><input type="radio" name="atRelation" value="Concordance"> Concordance</label>
+                                        <label><input type="radio" name="atRelation" value="Discordance"> Discordance</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interatrial Septum Section -->
+                    <div class="container" style="background-color: white; font-size: 13px; border: solid; border-color: lightgray">
+                        <div class="row">
+                            <div class="col-md-6" style="padding-top: 0%">
+                                <div class="form-group form-inline">
+                                    <div class="col-md-4">
+                                        <b>INTERATRIAL SEPTUM</b>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label><input type="radio" name="intSeptum" value="Intact"> Intact</label>
+                                        <label><input type="radio" name="intSeptum" value="PFO"> PFO</label>
+                                        <label><input type="radio" name="intSeptum" value="ASD"> ASD</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ventricular Great Arterial Relation Section -->
+                    <div class="container" style="background-color: white; font-size: 13px; border: solid; border-color: lightgray">
+                        <div class="row">
+                            <div class="col-md-6" style="padding-top: 1%">
+                                <div class="form-group form-inline">
+                                    <div class="col-md-5">
+                                        <b>VENTRICULAR GREAT ARTERIAL RELATION</b>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <label><input type="radio" name="veGARelation" value="Concordance"> Concordance</label>
+                                        <label><input type="radio" name="veGARelation" value="Discordance"> Discordance</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interventricular Septum Section -->
+                    <div class="container" style="background-color: white; font-size: 13px; border: solid; border-color: lightgray">
+                        <div class="row">
+                            <div class="col-md-6" style="padding-top: 0%">
+                                <div class="form-group form-inline">
+                                    <div class="col-md-4">
+                                        <b>INTERVENTRICULAR SEPTUM</b>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label><input type="radio" name="inSeptum" value="Intact"> Intact</label>
+                                        <label><input type="radio" name="inSeptum" value="VSD"> VSD</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-4 p-3" style="background-color: white; border: solid 1px lightgray; font-size: 14px;">
+            <!-- ASD Title -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-center"><b><u>ASD</u></b></h4>
+                </div>
+            </div>
+    
+            <!-- ASD Type -->
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <b>ASD TYPE</b>
+                    <div>
+                        <input type="radio" name="asdType" value="Size in 4CV"> Size in 4CV
+                        <input type="radio" name="asdType" value="Size in SCV"> Size in SCV
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <b>ASD Subtype</b>
+                    <div>
+                        <input type="radio" name="asdTypes" value="Ostium Primum"> Ostium Primum
+                        <input type="radio" name="asdTypes" value="Ostium Secundum"> Ostium Secundum
+                        <input type="radio" name="asdTypes" value="Sinus Venosus"> Sinus Venosus
+                        <input type="radio" name="asdTypes" value="Coronary Sinus"> Coronary Sinus
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Shunt -->
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <b>SHUNT</b>
+                    <div>
+                        <input type="radio" name="shunt" value="Left to Right"> Left to Right
+                        <input type="radio" name="shunt" value="Right to Left"> Right to Left
+                        <input type="radio" name="shunt" value="Bidirectional"> Bidirectional
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Pulmonary Veins Connection -->
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <b>PULMONARY VEINS CONNECTION</b>
+                    <div>
+                        <input type="radio" name="pvConnection" value="Normal"> Normal
+                        <input type="radio" name="pvConnection" value="Abnormal"> Abnormal
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Rims -->
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <b>RIMS</b>
+                </div>
+            </div>
+    
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <input type="checkbox" id="CheckMrim"> Mitral Rim
+                    <input type="text" class="form-control mt-1" id="txtMRim">
+                </div>
+            </div>
+    
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <input type="checkbox" id="CheckArim"> Aortic Rim
+                    <input type="text" class="form-control mt-1" id="txtARim">
+                </div>
+            </div>
+    
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <input type="checkbox" id="CheckSrim"> SVC Rim
+                    <input type="text" class="form-control mt-1" id="txtSVCRim">
+                </div>
+            </div>
+    
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <input type="checkbox" id="CheckIrim"> IVC Rim
+                    <input type="text" class="form-control mt-1" id="txtIVCRim">
+                </div>
+            </div>
+    
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <input type="checkbox" id="Checkcrim"> CS Rim
+                    <input type="text" class="form-control mt-1" id="txtCSRim">
+                </div>
+            </div>
+    
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <input type="checkbox" id="Checkpsrim"> Posterior/Superior Rim
+                    <input type="text" class="form-control mt-1" id="txtPSRim">
+                </div>
+            </div>
+    
+            <!-- TEE Finding -->
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <b>TEE Finding:</b>
+                    <input type="text" class="form-control mt-1" id="txtTEE">
+                </div>
+            </div>
+    
+            <hr>
+        </div>
+    
+        <!-- Bootstrap JS Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+        <div class="container" style="background-color: white; border: 1px solid lightgray; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; margin-top: 30px; font-size: 14px;">
+            <h4 style="text-decoration: underline; font-weight: bold; text-align: center;">VSD Information</h4>
+            
+            <!-- TYPE OF VSD -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label class="col-sm-2 col-form-label" style="font-weight: bold;">TYPE OF VSD:</label>
+                <div class="col-sm-10">
+                    <label style="margin-right: 15px;"><input type="radio" name="radioVSD" value="Perimembranous"> Perimembranous</label>
+                    <label style="margin-right: 15px;"><input type="radio" name="radioVSD" value="Sub-Aortic"> Sub-Aortic</label>
+                    <label style="margin-right: 15px;"><input type="radio" name="radioVSD" value="Inlet"> Inlet</label>
+                    <label style="margin-right: 15px;"><input type="radio" name="radioVSD" value="Outlet"> Outlet</label>
+                    <label style="margin-right: 15px;"><input type="radio" name="radioVSD" value="Muscular"> Muscular</label>
+                </div>
+            </div>
+    
+            <!-- VSD GRADIENT -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label class="col-sm-2 col-form-label" style="font-weight: bold;">VSD GRADIENT:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="txtVsdGradient" placeholder="Enter value" style="width: 100%; padding: 5px;">
+                </div>
+                <label class="col-sm-1 col-form-label">mmHg</label>
+            </div>
+    
+            <hr style="border: 1px solid #dee2e6;">
+    
+            <!-- FLOW -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label class="col-sm-2 col-form-label" style="font-weight: bold;">FLOW:</label>
+                <div class="col-sm-10">
+                    <label style="margin-right: 15px;"><input type="radio" name="radioFLOW" value="Left to Right"> Left to Right</label>
+                    <label style="margin-right: 15px;"><input type="radio" name="radioFLOW" value="Right to Left"> Right to Left</label>
+                    <label style="margin-right: 15px;"><input type="radio" name="radioFLOW" value="Bidirectional Shunt"> Bidirectional Shunt</label>
+                </div>
+            </div>
+    
+            <!-- AR -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label class="col-sm-2 col-form-label" style="font-weight: bold;">AR:</label>
+                <div class="col-sm-10">
+                    <label style="margin-right: 15px;"><input type="radio" name="radioAR" value="Present"> Present</label>
+                    <label style="margin-right: 15px;"><input type="radio" name="radioAR" value="Absent"> Absent</label>
+                </div>
+            </div>
+    
+            <!-- MR -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label class="col-sm-2 col-form-label" style="font-weight: bold;">MR:</label>
+                <div class="col-sm-10">
+                    <label style="margin-right: 15px;"><input type="radio" name="radioMR" value="Present"> Present</label>
+                    <label style="margin-right: 15px;"><input type="radio" name="radioMR" value="Absent"> Absent</label>
+                </div>
+            </div>
+    
+            <!-- LA/LV DILATION -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label class="col-sm-2 col-form-label" style="font-weight: bold;">LA/LV DILATION:</label>
+                <div class="col-sm-10">
+                    <label style="margin-right: 15px;"><input type="radio" name="radioDilation" value="Nil"> Nil</label>
+                    <label style="margin-right: 15px;"><input type="radio" name="radioDilation" value="Mild"> Mild</label>
+                    <label style="margin-right: 15px;"><input type="radio" name="radioDilation" value="Moderate"> Moderate</label>
+                    <label style="margin-right: 15px;"><input type="radio" name="radioDilation" value="Severe"> Severe</label>
+                </div>
+            </div>
+    
+            <!-- RVSP -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label class="col-sm-2 col-form-label" style="font-weight: bold;">RVSP:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="txtrvsp" placeholder="Enter value" style="width: 100%; padding: 5px;">
+                </div>
+                <label class="col-sm-1 col-form-label">mmHg</label>
+            </div>
+    
+            <hr style="border: 1px solid #dee2e6;">
+        </div>
+
+
+        <div id="PDA" style="display: none;">
+        <!-- PDA Header -->
+        <div class="container" style="background-color: white; border: 1px solid lightgray; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; margin-top: 30px; font-size: 14px;">
+            <h4 style="text-decoration: underline; font-weight: bold; text-align: center;">PDA</h4>
+
+            <!-- SIZE OF PDA -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label style="font-weight: bold; width: 150px;">SIZE OF PDA:</label>
+                <input type="text" class="form-control" placeholder="Enter value" style="width: 200px; padding: 5px;">
+                <span style="padding-left: 10px;">mm</span>
+            </div>
+
+            <!-- SIZE OF AMPULA -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label style="font-weight: bold; width: 150px;">SIZE OF AMPULA:</label>
+                <input type="text" class="form-control" placeholder="Enter value" style="width: 200px; padding: 5px;">
+                <span style="padding-left: 10px;">mm</span>
+            </div>
+
+            <!-- PDA GRADIENT -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label style="font-weight: bold; width: 150px;">PDA GRADIENT:</label>
+                <input type="text" class="form-control" placeholder="Enter value" style="width: 200px; padding: 5px;">
+            </div>
+
+            <!-- BI-VENTRICULAR SYSTOLIC FUNCTION -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label style="font-weight: bold; width: 250px;">BI-VENTRICULAR SYSTOLIC FUNCTION:</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioBIFunction" value="Normal"> Normal</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioBIFunction" value="Dysfunction"> Dysfunction</label>
+            </div>
+
+            <!-- DUCTAL TYPE -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label style="font-weight: bold; width: 150px;">DUCTAL TYPE:</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioDuctal" value="Tubular"> Tubular</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioDuctal" value="Window"> Window</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioDuctal" value="Vertical"> Vertical</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioDuctal" value="Cone"> Cone</label>
+            </div>
+
+            <!-- SHUNT -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label style="font-weight: bold; width: 150px;">SHUNT:</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioShunt" value="Left to Right"> Left to Right</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioShunt" value="Right to Left"> Right to Left</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioShunt" value="Bidirectional"> Bidirectional</label>
+            </div>
+
+            <!-- PATENT DUCTUS ARTERIOSUS -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label style="font-weight: bold; width: 250px;">PATENT DUCTUS ARTERIOSUS:</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioArteriosus" value="Small"> Small</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioArteriosus" value="Moderate"> Moderate</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioArteriosus" value="Large"> Large</label>
+            </div>
+
+            <!-- LA/LV DILATION -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label style="font-weight: bold; width: 150px;">LA/LV DILATION:</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioPDADilation" value="Nil"> Nil</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioPDADilation" value="Mild"> Mild</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioPDADilation" value="Moderate"> Moderate</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioPDADilation" value="Severe"> Severe</label>
+            </div>
+
+            <!-- RVSP -->
+            <div class="form-group row" style="padding-top: 10px;">
+                <label style="font-weight: bold; width: 150px;">RVSP:</label>
+                <input type="text" class="form-control" placeholder="Enter value" style="width: 200px; padding: 5px;">
+                <span style="padding-left: 10px;">mmHg</span>
+            </div>
+
+            <hr style="border: 1px solid #dee2e6;">
+        </div>
+        </div>
+
+
+
+        <div id="PDA" style="max-width: 800px; margin: 30px auto; background-color: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px;">
+
+            <!-- PDA Header -->
+            <h2 style="text-decoration: underline; font-weight: bold; text-align: center; color: #333;">PDA</h2>
+
+            <!-- SIZE OF PDA -->
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 200px; font-weight: bold;">SIZE OF PDA:</label>
+                <input type="text" class="form-control" placeholder="Enter value" style="width: 250px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                <span style="padding-left: 10px;">mm</span>
+            </div>
+
+            <!-- SIZE OF AMPULA -->
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 200px; font-weight: bold;">SIZE OF AMPULA:</label>
+                <input type="text" class="form-control" placeholder="Enter value" style="width: 250px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                <span style="padding-left: 10px;">mm</span>
+            </div>
+
+            <!-- PDA GRADIENT -->
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 200px; font-weight: bold;">PDA GRADIENT:</label>
+                <input type="text" class="form-control" placeholder="Enter value" style="width: 250px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+
+            <!-- BI-VENTRICULAR SYSTOLIC FUNCTION -->
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 250px; font-weight: bold;">BI-VENTRICULAR SYSTOLIC FUNCTION:</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioBIFunction" value="Normal"> Normal</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioBIFunction" value="Dysfunction"> Dysfunction</label>
+            </div>
+
+            <!-- DUCTAL TYPE -->
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 200px; font-weight: bold;">DUCTAL TYPE:</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioDuctal" value="Tubular"> Tubular</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioDuctal" value="Window"> Window</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioDuctal" value="Vertical"> Vertical</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioDuctal" value="Cone"> Cone</label>
+            </div>
+
+            <!-- SHUNT -->
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 200px; font-weight: bold;">SHUNT:</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioShunt" value="Left to Right"> Left to Right</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioShunt" value="Right to Left"> Right to Left</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioShunt" value="Bidirectional"> Bidirectional</label>
+            </div>
+
+            <!-- PATENT DUCTUS ARTERIOSUS -->
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 250px; font-weight: bold;">PATENT DUCTUS ARTERIOSUS:</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioArteriosus" value="Small"> Small</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioArteriosus" value="Moderate"> Moderate</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioArteriosus" value="Large"> Large</label>
+            </div>
+
+            <!-- LA/LV DILATION -->
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 200px; font-weight: bold;">LA/LV DILATION:</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioPDADilation" value="Nil"> Nil</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioPDADilation" value="Mild"> Mild</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioPDADilation" value="Moderate"> Moderate</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioPDADilation" value="Severe"> Severe</label>
+            </div>
+
+            <!-- RVSP -->
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 200px; font-weight: bold;">RVSP:</label>
+                <input type="text" class="form-control" placeholder="Enter value" style="width: 250px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                <span style="padding-left: 10px;">mmHg</span>
+            </div>
+
+            <hr style="border: 1px solid #e0e0e0; margin: 20px 0;">
+
+        </div>
+
+
+        <div id="TOF" style="max-width: 800px; margin: 30px auto; background-color: white; border: 1px solid lightgray; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px;">
+            <h2 style="text-decoration: underline; font-weight: bold; text-align: center; color: #333;">TOF</h2>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 200px; font-weight: bold;">NAKATA INDEX:</label>
+                <input type="text" class="form-control" placeholder="Enter value" style="width: 250px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                <span style="padding-left: 10px;">(300mm<sup>2</sup>/m<sup>2</sup>) (CSA(RPA+LPA))/BSA</span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 200px; font-weight: bold;">MCGOON RATIO:</label>
+                <input type="text" class="form-control" placeholder="Enter value" style="width: 250px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                <span style="padding-left: 10px;">(RPA+LPA/Des. Aorta)</span>
+            </div>
+
+            <hr style="border: 1px solid #e0e0e0; margin: 20px 0;">
+        </div>
+
+        <!-- TGA Section -->
+        <div id="TGA" style="max-width: 800px; margin: 30px auto; background-color: white; border: 1px solid lightgray; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px;">
+            <h2 style="text-decoration: underline; font-weight: bold; text-align: center; color: #333;">TGA</h2>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 200px; font-weight: bold;">COMMENT:</label>
+                <textarea class="form-control" placeholder="Enter your comment" style="width: 500px; height: 100px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+            </div>
+
+            <hr style="border: 1px solid #e0e0e0; margin: 20px 0;">
+        </div>
+
+        <!-- EBSTEIN ANOMALY Section -->
+        <div id="EBSTEIN_ANOMALY" style="max-width: 800px; margin: 30px auto; background-color: white; border: 1px solid lightgray; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px;">
+            <h2 style="text-decoration: underline; font-weight: bold; text-align: center; color: #333;">EBSTEIN ANOMALY</h2>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 200px; font-weight: bold;">CELERMAJER INDEX:</label>
+                <input type="text" class="form-control" placeholder="Enter value" style="width: 250px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                <span style="padding-left: 10px;">cm<sup>2</sup></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: inline-block; width: 200px; font-weight: bold;">RATIO:</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioAnoRatio" value="Grade1 (<0.5)"> Grade1 (<0.5)</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioAnoRatio" value="Grade2 (0.5-0.9)"> Grade2 (0.5-0.9)</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioAnoRatio" value="Grade3 (1.0-1.49)"> Grade3 (1.0-1.49)</label>
+                <label style="margin-right: 15px;"><input type="radio" name="radioAnoRatio" value="Grade4 (>=1.5)"> Grade4 (>=1.5)</label>
+            </div>
+
+            <hr style="border: 1px solid #e0e0e0; margin: 20px 0;">
+        </div>
+
+        <div class="container" style="background-color: white; font-size: 13px; border: solid 1px lightgray; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+
+            <!-- TA Section -->
+            <div id="TA" style="margin-bottom: 20px;">
+                <h3 style="border-bottom: 1px solid #e0e0e0; padding-bottom: 5px; color: #333;"><u>TA</u></h3>
+                <div class="form-group">
+                    <label for="txtTAComment" style="font-weight: bold;">Comment</label>
+                    <textarea class="form-control" id="txtTAComment" style="width: 100%; border-radius: 4px;" rows="3"></textarea>
+                </div>
+            </div>
+        
+            <!-- DORV Section -->
+            <div id="DORV" style="margin-bottom: 20px;">
+                <h5 style="border-bottom: 1px solid #e0e0e0; padding-bottom: 5px; color: #333;"><u>DORV</u></h5>
+                <div class="form-group">
+                    <label for="txtDORVComment" style="font-weight: bold;">Comment</label>
+                    <textarea class="form-control" id="txtDORVComment" style="width: 100%; border-radius: 4px;" rows="3"></textarea>
+                </div>
+            </div>
+        
+            <!-- VALVULAR TYPES -->
+            
+        
+            <!-- Buttons -->
+            <div class="text-center" style="margin-top: 20px;">
+                <button id="butdone" class="btn btn-primary" style="font-size: 14px; border-radius: 4px; padding: 6px 12px;">Done</button>
+                <button id="butclose" class="btn btn-secondary" style="font-size: 14px; border-radius: 4px; padding: 6px 12px; margin-left: 10px;">Close</button>
+            </div>
+        </div>
+
+
+        <div class="container" id="divValvular" style="background-color: white; font-size: 13px; border: outset; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+
+            <!-- Valvular Types Heading -->
+            <div class="row" style="margin-bottom: 15px;">
+                <div class="col-md-4">
+                    <b><u>VALVULAR TYPES</u></b>
+                </div>
+            </div>
+        
+            <!-- MS -->
+            <div class="row" style="margin-bottom: 8px;">
+                <div class="col-md-4">
+                    <input type="checkbox" id="CheckMS">
+                    <label for="CheckMS" style="font-weight: 100;">MS</label>
+                </div>
+            </div>
+        
+            <!-- MR -->
+            <div class="row" style="margin-bottom: 8px;">
+                <div class="col-md-4">
+                    <input type="checkbox" id="CheckMR">
+                    <label for="CheckMR" style="font-weight: 100;">MR</label>
+                </div>
+            </div>
+        
+            <!-- AS -->
+            <div class="row" style="margin-bottom: 8px;">
+                <div class="col-md-4">
+                    <input type="checkbox" id="CheckAS">
+                    <label for="CheckAS" style="font-weight: 100;">AS</label>
+                </div>
+            </div>
+        
+            <!-- AR -->
+            <div class="row" style="margin-bottom: 8px;">
+                <div class="col-md-4">
+                    <input type="checkbox" id="CheckAR">
+                    <label for="CheckAR" style="font-weight: 100;">AR</label>
+                </div>
+            </div>
+        
+            <!-- PS -->
+            <div class="row" style="margin-bottom: 8px;">
+                <div class="col-md-4">
+                    <input type="checkbox" id="CheckPS">
+                    <label for="CheckPS" style="font-weight: 100;">PS</label>
+                </div>
+            </div>
+        
+            <!-- PR -->
+            <div class="row" style="margin-bottom: 8px;">
+                <div class="col-md-4">
+                    <input type="checkbox" id="CheckPR">
+                    <label for="CheckPR" style="font-weight: 100;">PR</label>
+                </div>
+            </div>
+        
+            <!-- MV -->
+            <div class="row" style="margin-bottom: 8px;">
+                <div class="col-md-4">
+                    <input type="checkbox" id="CheckMV">
+                    <label for="CheckMV" style="font-weight: 100;">MV</label>
+                </div>
+            </div>
+        
+            <!-- TS -->
+            <div class="row" style="margin-bottom: 12px;">
+                <div class="col-md-2">
+                    <input type="checkbox" id="CheckTS" onclick="toggleTextarea('txtTS')">
+                    <label for="CheckTS" style="font-weight: 100;">TS</label>
+                </div>
+                <div class="col-md-6">
+                    <textarea class="form-control" id="txtTS" style="width: 100%; border-radius: 4px; display: none;" rows="3"></textarea>
+                </div>
+            </div>
+        
+            <!-- TR -->
+            <div class="row" style="margin-bottom: 12px;">
+                <div class="col-md-2">
+                    <input type="checkbox" id="CheckTR" onclick="toggleTextarea('txtTR')">
+                    <label for="CheckTR" style="font-weight: 100;">TR</label>
+                </div>
+                <div class="col-md-6">
+                    <textarea class="form-control" id="txtTR" style="width: 100%; border-radius: 4px; display: none;" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            function toggleTextarea(id) {
+                var textarea = document.getElementById(id);
+                if (textarea.style.display === "none") {
+                    textarea.style.display = "block";
+                } else {
+                    textarea.style.display = "none";
+                }
+            }
+        </script>
+
+        <div id="Div3" class="container" style="background-color: white; font-size: 13px; border: outset">
+            <div id="Div4" class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>Prosthetic Valve :</b>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="margin-top: -3%;">
+                        <input type="text" class="form-control" id="txtprosthetic_valve">
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+
+            <div id="valvular_MS" style="display: none;">
+                <div class="row">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b><u>MS</u></b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b>Gradient</b>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="txtGradient">
+                            </div>
+                            <div class="col-md-4">mmHg</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b>Valvular by 2DE</b>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="txtValvular_by_2DE">
+                            </div>
+                            <div class="col-md-4">Cm<sup>2</sup></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b>Valvular by PHT</b>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="txtValvular_by_PHT">
+                            </div>
+                            <div class="col-md-4">Cm<sup>2</sup></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b>SubValvular Pathology</b>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="radio" name="radioSubValvular_Pathology" value="Mild"> Mild
+                                <input type="radio" name="radioSubValvular_Pathology" value="Moderate"> Moderate
+                                <input type="radio" name="radioSubValvular_Pathology" value="Severe"> Severe
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b>SubValvular Pathology</b>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="radio" name="radioSubValvular_Pathology1" value="Significant"> Significant
+                                <input type="radio" name="radioSubValvular_Pathology1" value="Insignificant"> Insignificant
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b>AML Calcification</b>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="radio" name="radioAML_Calcification" value="Present"> Present
+                                <input type="radio" name="radioAML_Calcification" value="Absent"> Absent
+                                <input type="radio" name="radioAML_Calcification" value="Spects"> Spects
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b>Pml Calcification</b>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="radio" name="radioPml_Calcification" value="Present"> Present
+                                <input type="radio" name="radioPml_Calcification" value="Absent"> Absent
+                                <input type="radio" name="radioPml_Calcification" value="Spects"> Spects
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b>MR</b>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="radio" name="radioMRValu" value="Mild"> Mild
+                                <input type="radio" name="radioMRValu" value="Moderate"> Moderate
+                                <input type="radio" name="radioMRValu" value="Severe"> Severe
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b>LA Size</b>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="radio" name="radioLA_Size" value="Normal"> Normal
+                                <input type="radio" name="radioLA_Size" value="Mod"> Mod
+                                <input type="radio" name="radioLA_Size" value="Severe"> Severe
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b>LA Spontoneous Echo Contrast</b>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="radio" name="rdioLA_Spontoneous_echo_contrast" value="Present"> Present
+                                <input type="radio" name="rdioLA_Spontoneous_echo_contrast" value="Absent"> Absent
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================================================================== 
+         ===============================================-->
+
+         <div class="container" id="valvular_MR" style="display: block; background-color: white; font-size: 13px; border: outset">
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b><u>MR</u></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>ROA</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtROA" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            cm<sup>2</sup>(by Pisa Method)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>REGURGITANT VOLUME</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtRegurgitant_Volume" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            ml
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>REGURGITANT FRACTION</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtRegurgitant_Fraction" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            %
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>VENA CONTRACTA</b>
+                        </div>
+                        <div class="col-md-4" style="margin-bottom: 12px">
+                            <input type="text" class="form-control" id="txtVena_Contracta" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            mm
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container" id="valvular_AS" style="display: block; background-color: white; font-size: 13px; border: outset">
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b><u>AS</u></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>ROA</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtLvot_Velocity" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            m/s
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>LVOT DIAMETER</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtLvot_Diameter" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            mm
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>LVOT VTI</b>
+                        </div>
+                        <div class="col-md-4" style="margin-bottom: 12px">
+                            <input type="text" class="form-control" id="txtLvot_Vti" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            ms
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <div class="container" id="valvular_AR" style="display: block; background-color: white; font-size: 13px; border: outset">
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b><u>AR</u></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>ARPHT</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtARPHT" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            ms
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>REGURGITANT VOLUME</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtRegurgitant_VolumeAR" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            ml
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>ROA</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtROAAR" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            cm<sup>2</sup> (by Pisa Method)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>REGURGITANT FRACTION</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtRegurgitant_FractionAR" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            %
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>VENA CONTRACTA</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtVena_ContractaAR" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            mm
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>AR jet WIDTH</b>
+                        </div>
+                        <div class="col-md-4" style="margin-bottom: 12px">
+                            <input type="text" class="form-control" id="txtArjet_Width" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Empty label converted to empty div for spacing -->
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container" id="valvular_PS" style="display: none; background-color: white; font-size: 13px; border: outset">
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b><u>PS</u></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>PULMONARY VTI</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtPulmonary_VTI" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            ms
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>RVOT VELOCITY</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtRVOT_velocity" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            m/s
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>RVOT DIMENSION</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtRVOT_Dimension" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>RVOT VTI</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtRVOT_VTI" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            ms
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>MCGOON RATIO</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtPulmonary_Valve_Area_By_Continuity" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>RPA DIMENSION</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtRPA_Dimension" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>LPA DIMENSION</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtIPA_Dimension" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>NAKATA INDEX</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtNakata_Index" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-8">
+                            <b>PULMONARY VALVE AREA BY CONTINUITY EQUATION</b>
+                        </div>
+                        <div class="col-md-4" style="margin-bottom: 12px">
+                            <input type="text" class="form-control" id="txtMcgoon_Ratio" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <div class="container" id="valvular_PR" style="background-color: white; font-size: 13px; border: outset; display: block;">
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b><u>PR</u></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>PRPHT</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtPRPHT" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            ms
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>ROA</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtROAPR" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            cm<sup>2</sup>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>REGURGITANT VOLUME</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtREGURGITANT_VOLUMEPR" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            ml
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>REGURGITANT FRACTION</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtREGURGITANT_FRACTIONPR" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            %
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>PRPPG</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtPRPPG" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>PREDPG</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtPREDPG" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>REDUCTANCE WAVE</b>
+                        </div>
+                        <div class="col-md-4" style="margin-bottom: 12px">
+                            <input type="text" class="form-control" id="txtREDUCTANCE_WAVE" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <div class="container" id="valvular_MV" style="background-color: white; font-size: 13px; border: outset; display: block;">
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b><u>MV</u></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>Mitral valve area by 2DE</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtMitral_valve_area_by_2DE" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            cm<sup>2</sup>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>Mitral valve area by PHT</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtMitral_valve_area_by_PHT" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            cm<sup>2</sup>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>Mitral valve gradient</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtMitral_valve_gradient" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            mmHg
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>Mitral valve</b>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="radio" name="RadioMitral_valve" value="calcific"> Calcific
+                            <input type="radio" name="RadioMitral_valve" value="Non-calcific"> Non-calcific
+                            <input type="radio" name="RadioMitral_valve" value="Fibrous"> Fibrous
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>Tricuspid valve gradient</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtTricuspid_valve_gradient" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            mmHg
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>Tricuspid regurgitation</b>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" name="RadioTricuspid_regurgitation" value="Mild"> Mild
+                            <input type="radio" name="RadioTricuspid_regurgitation" value="Mod"> Mod
+                            <input type="radio" name="RadioTricuspid_regurgitation" value="Severe"> Severe
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>RVSP</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtRVSPMV" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            mmHg+RAP
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>Aortic gradient</b>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="txtAortic_gradient" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            mmHg
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>AS</b>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" name="RadioAS" value="Mild"> Mild
+                            <input type="radio" name="RadioAS" value="Mild Mod"> Mild Mod
+                            <input type="radio" name="RadioAS" value="Severe"> Severe
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>AR Severity</b>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" name="RadioAR_Severity" value="Mild"> Mild
+                            <input type="radio" name="RadioAR_Severity" value="Mild Mod"> Mild Mod
+                            <input type="radio" name="RadioAR_Severity" value="Severe"> Severe
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-6" style="padding-top: 1%">
+                    <div class="form-group form-inline">
+                        <div class="col-md-4">
+                            <b>AVA by continuity equation</b>
+                        </div>
+                        <div class="col-md-4" style="margin-bottom:12px">
+                            <input type="text" class="form-control" id="txtAVA_by_continuity_equation" style="width: 100%;">
+                        </div>
+                        <div class="col-md-4">
+                            cm<sup>2</sup>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <center>
+            <button id="butdone1" style="font-size: 16px;" onclick="Click_open_buttonValvular()">Done</button>
+            <button id="butclose1" style="font-size: 16px;" onclick="close_button1()">Close</button>
+        </center>
+
+
+
+
+        <!-- ===================================================
+         ========================================================
+         =====================================================================================================================
+         ================================================================= -->
+        
+
+         <div class="container mt-3" style="background-color: white; font-size: 13px; border: outset; padding: 15px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <b><u>ISCHEMIC HEART DISEASE</u></b>
+                </div>
+            </div>
+        
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <b>ISCHEMIC TYPE</b>
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="ISCHEMIC" id="RadioNormokinetic">
+                            <label class="form-check-label" for="RadioNormokinetic">Normokinetic</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="ISCHEMIC" id="RadioHypokinetic">
+                            <label class="form-check-label" for="RadioHypokinetic">Hypokinetic</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="ISCHEMIC" id="RadioAkinetic">
+                            <label class="form-check-label" for="RadioAkinetic">Akinetic</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="ISCHEMIC" id="RadioDyskinetic">
+                            <label class="form-check-label" for="RadioDyskinetic">Dyskinetic</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="ISCHEMIC" id="RadioAneurysm">
+                            <label class="form-check-label" for="RadioAneurysm">Aneurysm</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="ISCHEMIC" id="RadioPseudoaneurysm">
+                            <label class="form-check-label" for="RadioPseudoaneurysm">Pseudoaneurysm</label>
+                        </div>
+                        <input type="text" class="form-control mt-2" id="txtcomment" placeholder="Enter comment">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <b>LV SYSTOLIC</b>
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="SYSTOLIC" id="RadioNormal">
+                            <label class="form-check-label" for="RadioNormal">Normal</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="SYSTOLIC" id="RadioMildDysfunction">
+                            <label class="form-check-label" for="RadioMildDysfunction">Mild Dysfunction</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="SYSTOLIC" id="radioModerateDysfunction">
+                            <label class="form-check-label" for="radioModerateDysfunction">Moderate Dysfunction</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="SYSTOLIC" id="RadioSevere">
+                            <label class="form-check-label" for="RadioSevere">Severe</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <b>RIGHT VENTRICULAR FUNCTION</b>
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="RIGHT_VENTRICULAR_FUNCTION" id="RadioRightNormal">
+                            <label class="form-check-label" for="RadioRightNormal">Normal</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="RIGHT_VENTRICULAR_FUNCTION" id="RadioRightImpaired">
+                            <label class="form-check-label" for="RadioRightImpaired">Impaired</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+
+        <div style="max-width: 800px; margin: auto; background-color: white; font-size: 14px; border: 2px solid #ddd; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1);">
+            <div style="margin-bottom: 15px; font-weight: bold;">LV DIASTOLIC DYSFUNCTION</div>
+            <div style="margin-bottom: 10px;">
+                <label><input type="radio" name="LV_DIASTOLIC" value="Nill"> Nill</label>
+                <label><input type="radio" name="LV_DIASTOLIC" value="Mild" style="margin-left:1px;"> Mild</label>
+                <label><input type="radio" name="LV_DIASTOLIC" value="Moderate" style="margin-left: 1
+                px;"> Moderate</label>
+                <label><input type="radio" name="LV_DIASTOLIC" value="Severe" style="margin-left: 1px;"> Severe</label>
+            </div>
+            
+            <div style="margin-bottom: 15px; font-weight: bold;">LV CLOT</div>
+            <div style="margin-bottom: 10px;">
+                <label><input type="radio" name="LV_CLOT" value="Present"> Present</label>
+                <input type="text" placeholder="Size in mm" style="margin-left: 10px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; width: 100px;">
+                <label style="margin-left: 1px;"><input type="radio" name="LV_CLOT" value="Absent"> Absent</label>
+            </div>
+            
+            <div style="margin-bottom: 15px; font-weight: bold;">PERICARDIAL EFFUSION</div>
+            <div style="margin-bottom: 10px;">
+                <label><input type="radio" name="EFFUSION" value="Present"> Present</label>
+                <span style="margin-left: 15px;">Anterior to RV:</span>
+                <input type="text" placeholder="mm" style="margin-left: 5px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; width: 80px;">
+                <span style="margin-left: 15px;">Posterior to RV:</span>
+                <input type="text" placeholder="mm" style="margin-left: 5px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; width: 80px;">
+                <label style="margin-left: 1px;"><input type="radio" name="EFFUSION" value="Absent"> Absent</label>
+            </div>
+            
+            <div style="margin-bottom: 15px; font-weight: bold;">MR</div>
+            <input type="text" placeholder="Enter value" style="padding: 5px; border: 1px solid #ccc; border-radius: 4px; width: 100%;">
+            
+            <div style="margin-top: 15px; font-weight: bold;">LV VOLUME</div>
+            <div style="margin-bottom: 10px;">
+                <label><input type="radio" name="LV_VOLUME" value="Normal"> Normal</label>
+                <label style="margin-left: 1px;"><input type="radio" name="LV_VOLUME" value="Dilated"> Dilated</label>
+            </div>
+            
+            <div style="margin-top: 15px; font-weight: bold;">SCAR SEGMENT</div>
+            <div style="margin-bottom: 10px;">
+                <label><input type="radio" name="SCAR_SEGMENT" value="Present"> Present</label>
+                <label style="margin-left: 1px;"><input type="radio" name="SCAR_SEGMENT" value="Absent"> Absent</label>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <button style="background-color: #007bff; color: white; padding: 8px 20px; border: none; border-radius: 4px; cursor: pointer;">Done</button>
+                <button style="background-color: #6c757d; color: white; padding: 8px 20px; border: none; border-radius: 4px; cursor: pointer; margin-left: 10px;">Close</button>
+            </div>
+        </div>
+
+
+
+
+        <!-- =================cardiomyopathy types==========================================
+         =================================================================================== -->
+         <div style="background-color: white; font-size: 13px; border: outset; padding: 15px; width: 60%; margin: auto;">
+            <div style="margin-bottom: 10px;">
+                <div style="display: flex; align-items: center;">
+                    <div style="flex: 1;">
+                        <b><u>
+                            <label style="font-weight: bold;">CARDIOMYOPATHY TYPES</label></u></b>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Checkboxes -->
+            <div style="margin-bottom: 10px;">
+                <div style="display: flex; align-items: center;">
+                    <div style="flex: 1;">
+                        <input type="checkbox" id="CheckHCM" style="font-weight: 100;" onchange="togglePopup('Card_HCM')" />
+                        <label for="CheckHCM">HCM</label>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <div style="display: flex; align-items: center;">
+                    <div style="flex: 1;">
+                        <input type="checkbox" id="CheckRCM" style="font-weight: 100;" onchange="togglePopup('Card_RCM')" />
+                        <label for="CheckRCM">RCM</label>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <div style="display: flex; align-items: center;">
+                    <div style="flex: 1;">
+                        <input type="checkbox" id="CheckDCM" style="font-weight: 100;" onchange="togglePopup('Card_DCM')" />
+                        <label for="CheckDCM">DCM</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Popup for HCM -->
+        <div id="Card_HCM" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000; width: 80%; max-width: 600px;">
+            <div style="background-color: white; font-size: 13px; border: outset; padding: 10px;">
+                <div style="margin-bottom: 10px;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 1;">
+                            <b><u>
+                                <label style="font-weight: bold;">HCM</label></u></b>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 1;">
+                            <label style="font-weight: bold;">IVS/PW RATIO</label>
+                            <input type="text" style="margin-left: 10px;" />
+                            <label style="margin-left: 10px;">(>1.3)</label>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 1;">
+                            <label style="font-weight: bold;">LVOT PPG</label>
+                            <input type="text" style="margin-left: 10px;" />
+                            <label style="margin-left: 10px;">mmHg</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button style="font-size: 16px; padding: 10px 20px;" onclick="closePopup('Card_HCM')">Close</button>
+            </div>
+        </div>
+    
+        <!-- Popup for RCM -->
+        <div id="Card_RCM" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000; width: 80%; max-width: 600px;">
+            <div style="background-color: white; font-size: 13px; border: outset; padding: 10px;">
+                <div style="margin-bottom: 10px;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 1;">
+                            <b><u>
+                                <label style="font-weight: bold;">RCM</label></u></b>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 1;">
+                            <label style="font-weight: bold;">IVS E'</label>
+                            <input type="text" style="margin-left: 10px;" />
+                            <label style="margin-left: 10px;">m/s</label>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 1;">
+                            <label style="font-weight: bold;">IVS A'</label>
+                            <input type="text" style="margin-left: 10px;" />
+                            <label style="margin-left: 10px;">m/s</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button style="font-size: 16px; padding: 10px 20px;" onclick="closePopup('Card_RCM')">Close</button>
+            </div>
+        </div>
+    
+        <!-- Popup for DCM -->
+        <div id="Card_DCM" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000; width: 80%; max-width: 600px;">
+            <div style="background-color: white; font-size: 13px; border: outset; padding: 10px;">
+                <div style="margin-bottom: 10px;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 1;">
+                            <b><u>
+                                <label style="font-weight: bold;">DCM</label></u></b>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 1;">
+                            <label style="font-weight: bold;">IVS TO PW DELAY/M-MODE</label>
+                            <input type="text" style="margin-left: 10px;" />
+                            <label style="margin-left: 10px;">ms</label>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 1;">
+                            <label style="font-weight: bold;">Q TO PV</label>
+                            <input type="text" style="margin-left: 10px;" />
+                            <label style="margin-left: 10px;">ms</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button style="font-size: 16px; padding: 10px 20px;" onclick="closePopup('Card_DCM')">Close</button>
+            </div>
+        </div>
+    
+        <!-- Overlay -->
+        <div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
+    
+        <script>
+            // Function to toggle popup visibility
+            function togglePopup(popupId) {
+                const popup = document.getElementById(popupId);
+                const overlay = document.getElementById('overlay');
+                const checkbox = document.querySelector(`input[onchange*="${popupId}"]`);
+    
+                if (checkbox.checked) {
+                    popup.style.display = 'block';
+                    overlay.style.display = 'block';
+                } else {
+                    popup.style.display = 'none';
+                    overlay.style.display = 'none';
+                }
+            }
+    
+            // Function to close popup
+            function closePopup(popupId) {
+                const popup = document.getElementById(popupId);
+                const overlay = document.getElementById('overlay');
+                const checkbox = document.querySelector(`input[onchange*="${popupId}"]`);
+    
+                popup.style.display = 'none';
+                overlay.style.display = 'none';
+                checkbox.checked = false; // Uncheck the checkbox
+            }
+        </script>
+
+         <!-- ============================other heart disease===================================
+          =============================================================================================
+          ============================================================================================== -->
+        
+          
+
+        <div id="Panel5" class="container">
+            <div>
+                <b><u><label style="font-weight: bold;">OTHER TYPES</label></u></b>
+            </div>
+
+            <!-- Checkboxes -->
+            <div style="margin-top: 10px;">
+                <input type="checkbox" id="CheckCONSTRICTIVE" onchange="toggleOther(event, 'Other1')">
+                <label for="CheckCONSTRICTIVE" style="font-weight: bold;">CONSTRICTIVE PERICARDITIS</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="CheckLV" onchange="toggleOther(event, 'Other2')">
+                <label for="CheckLV" style="font-weight: 100;">LV NON-COMPACTION</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="CheckCARDIAC" onchange="toggleOther(event, 'Other3')">
+                <label for="CheckCARDIAC" style="font-weight: 100;">CARDIAC TUMORS</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="CheckCARCINOID" onchange="toggleOther(event, 'Other4')">
+                <label for="CheckCARCINOID" style="font-weight: 100;">CARCINOID HEART DISEASE</label>
+            </div>
+
+            <hr>
+
+            <!-- Sections for Each Type -->
+            <div class="Container" id="Other1" style="background-color: white; font-size: 13px; border: outset; display: none;">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b><u>
+                                    <label id="Label388" style="font-weight: bold;">CONSTRICTIVE PERICARDITIS</label></u></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-2">
+                                <label id="Label389" style="font-weight: bold;">PERICARDIUM THICKNESS</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="txtPericardium_Thickness" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                                <label id="Label390">mm</label>
+                            </div>
+                        </div>
+                        <div class="form-group form-inline">
+                            <div class="col-md-2">
+                                <label id="Label391" style="font-weight: bold;">LV APEX SIDE</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="txtLV_Apex_Side" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                                <label id="Label392">mm</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-2">
+                                <label id="Label393" style="font-weight: bold;">MITRAL E MAXIMUM</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="txtMitral_E_Maximum" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                                <label id="Label394">m/s</label>
+                            </div>
+                        </div>
+                        <div class="form-group form-inline">
+                            <div class="col-md-2">
+                                <label id="Label395" style="font-weight: bold;">MITRAL E MINIMUM</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="txtMitral_E_Minimum" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                                <label id="Label396">m/s</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-2">
+                                <label id="Label397" style="font-weight: bold;">TRICUSPID E MAXIMUM</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="txtTricuspid_E_Maximum" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                                <label id="Label398">m/s</label>
+                            </div>
+                        </div>
+                        <div class="form-group form-inline">
+                            <div class="col-md-2">
+                                <label id="Label399" style="font-weight: bold;">TRICUSPID E MINIMUM</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="txtTricuspid_E_Minimum" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                                <label id="Label400">m/s</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PERICARDIAL EFFUSION -->
+            <div class="Container" id="Other2" style="background-color: white; font-size: 13px; border: outset; display: none;">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b><u>
+                                    <label id="Label401" style="font-weight: bold;">PERICARDIAL EFFUSION</label></u></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <label id="Label402" style="font-weight: bold;">ANTERIOR TO RV</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="txtPericardial_Effusion_Anterior_RV" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                                <label id="Label403">mm</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <label id="Label404" style="font-weight: bold;">POSTERIOR TO LV</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="txtPericardial_Effusion_Posterior_LV" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                                <label id="Label405">mm</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <label id="Label406" style="font-weight: bold;">LATERAL TO LV</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="txtPericardial_Effusion_Lateral_LV" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                                <label id="Label407">mm</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <label id="Label408" style="font-weight: bold;">RESPIRATORY VARIATION IN MITRAL INFLOW</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="txtRespiratory_Variation_In_Mitral" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                                <label id="Label409">(in %)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <label id="Label410" style="font-weight: bold;">RESPIRATORY VARIATION IN TRICUSPID INFLOW</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="txtRespiratory_Variation_In_Tricuspid" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                                <label id="Label411">(in %)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LV NON-COMPACTION -->
+            <div class="Container" id="Other3" style="background-color: white; font-size: 13px; border: outset; display: none;">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b><u>
+                                    <label id="Label412" style="font-weight: bold;">LV NON-COMPACTION</label></u></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-8" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-2">
+                                <b>
+                                    <label id="Label413" style="font-weight: bold;">COMMENT</label></b>
+                            </div>
+                            <div class="col-md-6" style="margin-bottom:12px">
+                                <textarea class="form-control" id="txtCommentLV" style="width: 100%;" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CARDIAC TUMORS -->
+            <div class="Container" id="Other4" style="background-color: white; font-size: 13px; border: outset; display: none;">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b><u>
+                                    <label id="Label414" style="font-weight: bold;">CARDIAC TUMORS</label></u></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-8" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-2">
+                                <b>
+                                    <label id="Label415" style="font-weight: bold;">COMMENT</label></b>
+                            </div>
+                            <div class="col-md-6" style="margin-bottom:12px">
+                                <textarea class="form-control" id="txtCommentCardiac" style="width: 100%;" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CARCINOID HEART DISEASE -->
+            <div class="Container" id="Other5" style="background-color: white; font-size: 13px; border: outset; display: none;">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-4">
+                                <b><u>
+                                    <label id="Label416" style="font-weight: bold;">CARCINOID HEART DISEASE</label></u></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-md-8" style="padding-top: 1%">
+                        <div class="form-group form-inline">
+                            <div class="col-md-2">
+                                <b>
+                                    <label id="Label417" style="font-weight: bold;">COMMENT</label></b>
+                            </div>
+                            <div class="col-md-6" style="margin-bottom:12px">
+                                <textarea class="form-control" id="txtCommentCarcinoid" style="width: 100%;" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <center>
+                <button id="buttonotherHD" style="font-size: 16px;">Done</button>
+                <button id="ButtonbuttonOtherClose" style="font-size: 16px;">Close</button>
+            </center>
+
+        <script>
+            function toggleOther(event, sectionId) {
+                var section = document.getElementById(sectionId);
+                if (section) {
+                    section.style.display = event.target.checked ? "block" : "none";
+                }
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+</div>
+
+
+
+
+
