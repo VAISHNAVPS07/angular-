@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Welcome to Cardiology E-Reporting System</h2>
+
+    <img ng-src="{{image1}}" alt="Cardiology Image" class="center-image" />
+    
+
+    <p>{{ introText }}</p>
+
+    <h3>Procedures Performed by Interventional Cardiologists:</h3>
+    <ul>
+        <li ng-repeat="procedure in procedures">{{ procedure }}</li>
+    </ul>
+
+    <h3>Procedures Performed by Cardio Thoracic & Vascular Surgeons:</h3>
+    <ul>
+        <li ng-repeat="surgery in surgeries">{{ surgery }}</li>
+    </ul>
+
+    <div class="info-box">
+        <h3>About Manipal Heart Institute</h3>
+        <p>
+            Manipal Heart Institute is committed to providing top-tier cardiac care.  
+            Our unit has successfully performed over <b>6000 Angiograms</b> and more than <b>2000 Angioplasty procedures</b>.  
+            We combine <b>state-of-the-art technology</b> with a <b>highly skilled team</b> to deliver world-class treatment.
+        </p>
+    </div>
+</div>
