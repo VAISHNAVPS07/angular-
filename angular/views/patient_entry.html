@@ -4,1203 +4,667 @@
 
         <form ng-submit="submitPatientEntry()" name="patientEntryForm" novalidate>
 
-        <div class="container mt-4">
-        <div class="container p-3 border">
-        <div class="row">
-            <div class="col-md-4">
-                <label>Disease ID:</label>
-                <input type="text" class="form-control" ng-model="patient.diseaseID" >
-            </div>
-            <div class="col-md-4">
-                <label>Hospital No.:</label>
-                <input type="text" class="form-control" ng-model="patient.hospitalNo">
-            </div>
-            <div class="col-md-4">
-                <label>Name:</label>
-                <input type="text" class="form-control" ng-model="patient.name" >
-            </div>
-            <div class="col-md-4 mt-3">
-                <label>DOB:</label>
-                <input type="date" class="form-control" ng-model="patient.dob" >
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-4">
-                <label>Sex:</label>
-                <div>
-                    <label><input type="radio" ng-model="patient.sex" value="M"> Male</label>
-                    <label><input type="radio" ng-model="patient.sex" value="F"> Female</label>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <label>Phone No.:</label>
-                <input type="text" class="form-control" ng-model="patient.phoneNo" >
-            </div>
-            <div class="col-md-4">
-                <label>IP No.:</label>
-                <input type="text" class="form-control" ng-model="patient.ipNo">
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-4">
-                <label>Dept/Unit:</label>
-                <select class="form-control" ng-model="patient.dept">
-                    <option value="">Select</option>
-                    <option value="Cardiology">Cardiology</option>
-                    <option value="Neurology">Neurology</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <label>Ward/OPD:</label>
-                <select class="form-control" ng-model="patient.wardOpd">
-                    <option value="">Select</option>
-                    <option value="Ward">Ward</option>
-                    <option value="Opd">Opd</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <label>Date:</label>
-                <input type="date" class="form-control" ng-model="patient.date">
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-4">
-                <label>Consultant Doctor:</label>
-                <textarea class="form-control" ng-model="patient.consultantDoctor"></textarea>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-4">
-                <input type="checkbox" ng-model="patient.retrieveLastVisit"> Retrieve last visited information?
-            </div>
-        </div>
-        </div>
-        </div>
-
-        <div class="container">
-        <div class="container" style="background-color: white; font-size: 13px; border: outset">
-        <div class="row">
-            <div class="col-md-4" style="padding-top: 1%">
-                <div class="form-group form-inline">
-                    <div class="col-md-4">
-                        <label for="txtPatientID">Hospital No. :</label>
-                    </div>
-                    <div class="col-md-8">
-                        <input type="text" class="form-control" id="txtPatientID" ng-model="patient.hospitalNo">
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="container" style="background-color: white; font-size: 13px; border: outset">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="form-group form-inline">
-                    <div class="col-md-4">
-                        <input type="checkbox" id="DataRetriew" ng-model="patient.retrieveInfo">&nbsp;&nbsp;Retrieve last visited information?
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="container" style="background-color: white; font-size: 13px; border: outset">
-        <div class="row">
-            <div class="col-md-8" style="padding-top: 1%; padding-bottom: 0.5%">
-                <div class="form-group form-inline">
-                    <div class="col-md-4">
-                        <label>Quality of Acoustic Window :</label>
-                    </div>
-                    <div class="col-md-8">
-                        <input type="radio" name="acousticQuality" value="Excellent" ng-model="patient.acousticQuality"> Excellent
-                        <input type="radio" name="acousticQuality" value="Good" ng-model="patient.acousticQuality"> Good
-                        <input type="radio" name="acousticQuality" value="Poor" ng-model="patient.acousticQuality"> Poor
-                        <input type="radio" name="acousticQuality" value="Very Poor" ng-model="patient.acousticQuality"> Very Poor
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
-
-
-
-        <div class="container" style="background-color: white; font-size: 13px; border: outset; width: 80%; margin: 20px auto; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-            <div class="row">
-                <div class="col-md-12 text-center mb-3" style="padding-left: 250px;">
-                    <u><b>LEFT ATRIUM</b></u>
-                </div>
-            </div>
         
-            <div class="row" >
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="txtLeftAPD">A-P DIMENSION</label>
-                        <input type="text" class="form-control" id="txtLeftAPD">
-                        <small class="form-text text-muted">mm (19-40)</small>
+            <div class="container p-3 border ms-3">
+                <div class="row gx-3 gy-1">
+                    <div class="col-md-3" style="padding-left: 2%;">
+                        <label class="no-underline mb-1">Disease ID:</label>
+                        <input type="text" class="form-control form-control-sm" ng-model="patient.diseaseID">
+                    </div>
+                    <div class="col-md-3" style="padding-left: 2%;">
+                        <label class="no-underline mb-1">Hospital No.:</label>
+                        <input type="text" class="form-control form-control-sm" ng-model="patient.hospitalNo">
+                    </div>
+                    <div class="col-md-3" style="padding-left: 2%;">
+                        <label class="no-underline mb-1">Name:</label>
+                        <input type="text" class="form-control form-control-sm" ng-model="patient.name">
+                    </div>
+                    <div class="col-md-3"style="padding-left: 2%;">
+                        <label class="no-underline mb-1">DOB:</label>
+                        <input type="date" class="form-control form-control-sm" ng-model="patient.dob">
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="txtLeft1SD">1-S DIMENSION</label>
-                        <input type="text" class="form-control" id="txtLeft1SD">
-                        <small class="form-text text-muted">mm (&lt;50-55)</small>
+                <div class="row gx-3 gy-2 ">
+                    <div class="col-md-3"style="padding-left: 2%;">
+                        <label class="no-underline mb-1">Sex:</label>
+                        <div>
+                            <label class="no-underline me-2">
+                                <input type="radio" ng-model="patient.sex" value="M"> Male
+                            </label>
+                            <label class="no-underline">
+                                <input type="radio" ng-model="patient.sex" value="F"> Female
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-3"style="padding-left: 2%;">
+                        <label class="no-underline mb-1">Phone No.:</label>
+                        <input type="text" class="form-control form-control-sm" ng-model="patient.phoneNo"/>
+                    </div>
+                    <div class="col-md-3"style="padding-left: 2%;">
+                        <label class="no-underline mb-1">IP No.:</label>
+                        <input type="text" class="form-control form-control-sm" ng-model="patient.ipNo"/>
+                    </div>
+                    <div class="col-md-3"style="padding-left: 2%;">
+                        <label class="no-underline mb-1">Dept/Unit:</label>
+                        <select class="form-control form-control-sm" ng-model="patient.dept">
+                            <option value="">Select</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Neurology">Neurology</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3"style="padding-left: 2%;">
+                        <label class="no-underline mb-1">Ward/OPD:</label>
+                        <select class="form-control form-control-sm" ng-model="patient.wardOpd">
+                            <option value="">Select</option>
+                            <option value="Ward">Ward</option>
+                            <option value="Opd">Opd</option>
+                        </select>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="txtLeftArea">AREA</label>
-                        <input type="text" class="form-control" id="txtLeftArea">
-                        <small class="form-text text-muted">cm</small>
+                <div class="row gx-3 gy-2 mt-3">
+                    
+                    <div class="col-md-3"style="padding-left: 2%;">
+                        <label class="no-underline mb-1">Date:</label>
+                        <input type="date" class="form-control form-control-sm" ng-model="patient.date">
+                    </div>
+                    <div class="col-md-6"style="padding-left: 5%;">
+                        <label class="no-underline mb-1">Consultant Doctor:</label>
+                        <textarea class="form-control form-control-sm" ng-model="patient.consultantDoctor" style="width: 300px;" rows="2"></textarea>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="txtLeftVolume">VOLUME</label>
-                        <input type="text" class="form-control" id="txtLeftVolume">
-                        <small class="form-text text-muted">ml</small>
+                <div class="row gx-3 gy-2 mt-2">
+                    <div class="col-md-12">
+                        <input type="checkbox" ng-model="patient.retrieveLastVisit"> Retrieve last visited information?
                     </div>
                 </div>
             </div>
-        </div>
+            
+
         
+            <div class="container" style="background-color: white; font-size: 13px; border: outset; width: 80%; margin: 20px auto; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1);" ng-app="cardiologyApp" ng-controller="CardiologyController">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group form-inline" style="display: flex; align-items: center;">
+                            <label class="col-md-3" style="margin-bottom: 0; padding-left: 7%; text-decoration: none;">
+                                Quality of Acoustic Window :
+                            </label>
+                            <div class="col-md-9" style="display: flex; align-items: center; flex-wrap: nowrap; gap: 10px; padding-left: 5%;padding-top: 4%;">
+                                <label style="margin-bottom: 0; white-space: nowrap; text-decoration: none;">
+                                    <input type="radio" name="acousticQuality" value="Excellent" ng-model="patient.acousticQuality"> Excellent
+                                </label>
+                                <label style="margin-bottom: 0; white-space: nowrap; text-decoration: none;">
+                                    <input type="radio" name="acousticQuality" value="Good" ng-model="patient.acousticQuality"> Good
+                                </label>
+                                <label style="margin-bottom: 0; white-space: nowrap; text-decoration: none;">
+                                    <input type="radio" name="acousticQuality" value="Poor" ng-model="patient.acousticQuality"> Poor
+                                </label>
+                                <label style="margin-bottom: 0; white-space: nowrap; text-decoration: none;">
+                                    <input type="radio" name="acousticQuality" value="Very Poor" ng-model="patient.acousticQuality"> Very Poor
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="container" style="background-color: white; font-size: 13px; border: outset; width: 80%; margin: 20px auto; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1);" ng-app="cardiologyApp" ng-controller="CardiologyController">
+                <div class="row" style="text-align: center; margin-bottom: 20px;">
+                    <div class="col-md-12" style="font-size: 20px; font-weight: 700; color: #333; padding-left: 300px;">
+                        LEFT ATRIUM
+                    </div>
+                </div>
+            
+                <div class="row gx-3 gy-4">
+                    <div class="col-md-3"style="padding-left: 4%;">
+                        <div class="form-group">
+                            <div class="d-flex align-items-center" >
+                                <!-- Underline removed and text kept in a single line -->
+                                <label for="txtLeftAPD" class="me-2 fw-bold" style="text-decoration: none; white-space: nowrap;">A-P DIMENSION</label>
+                                <input type="text" class="form-control me-2" ng-model="LeftAPD" style="border-radius: 0;">
+                                <small class="form-text text-muted">mm (19-40)</small>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtLeft1SD" class="fw-bold" style="text-decoration: none; white-space: nowrap;">1-S DIMENSION</label>
+                            <input type="text" class="form-control" ng-model="Left1SD">
+                            <small class="form-text text-muted">mm (&lt;50-55)</small>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtLeftArea" class="fw-bold" style="text-decoration: none; white-space: nowrap;">AREA</label>
+                            <input type="text" class="form-control" ng-model="LeftArea">
+                            <small class="form-text text-muted">cm</small>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtLeftVolume" class="fw-bold" style="text-decoration: none; white-space: nowrap;">VOLUME</label>
+                            <input type="text" class="form-control" ng-model="LeftVolume">
+                            <small class="form-text text-muted">ml</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         
         <!-- LV-RV section -->
-        <div class="container" style="background-color: white; font-size: 13px; border: outset">
-        <div class="row">
-        <div class="col-md-12" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-sm-12">
-                    <center><u><b>LV</b></u></center>
+            <div class="container" style="background-color: white; font-size: 13px; border: outset;">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%;">
+                        <div class="form-group">
+                            <div class="col-md-12" style="font-size: 20px; font-weight: 700; color: #333; padding-left: 300px;">
+                                LV
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Increased spacing between rows by using gy-4 for uniformity -->
+                <div class="row gx-3 gy-4">
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">IVS: S/D</label>
+                        <input type="text" class="form-control me-2" ng-model="ivsSd">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">PW: S/D</label>
+                        <input type="text" class="form-control me-2" ng-model="pwsd">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">EDV</label>
+                        <input type="text" class="form-control me-2" ng-model="edv">
+                        <span>ml</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">ESV</label>
+                        <input type="text" class="form-control me-2" ng-model="esv">
+                        <span>ml</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">ALEF</label>
+                        <input type="text" class="form-control me-2" ng-model="alef">
+                        <span>%</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">SV</label>
+                        <input type="text" class="form-control me-2" ng-model="sv">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">CO</label>
+                        <input type="text" class="form-control me-2" ng-model="CO">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">EDD</label>
+                        <input type="text" class="form-control me-2" ng-model="EDD">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">ESD</label>
+                        <input type="text" class="form-control me-2" ng-model="ESD">
+                        <span>mm</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtIVSSD">IVS: S/D</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtIVSSD">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtPWSD">PW: S/D</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtPWSD">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtEDV">EDV</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtEDV">
-                </div>
-                <div class="col-md-4">
-                    <label>ml</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtESV">ESV</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtESV">
-                </div>
-                <div class="col-md-4">
-                    <label>ml</label>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtALEF">ALEF</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtALEF">
-                </div>
-                <div class="col-md-4">
-                    <label>%</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtSV">SV</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtSV">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtCO">CO</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtCO">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtEDD">EDD</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtEDD">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtESD">ESD</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtESD">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtEF">EF</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtEF">
-                </div>
-                <div class="col-md-4">
-                    <label>%</label>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtFS">FS</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtFS">
-                </div>
-                <div class="col-md-4">
-                    <label>%</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtHR">HR</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtHR">
-                </div>
-                <div class="col-md-4">
-                    <label>bpm</label>
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
-
-
+            
+        
         <!-- ================================================================================================================== -->
-        <div class="container" style="background-color: white; font-size: 13px; border: outset">
-        <div class="row">
-        <div class="col-md-12" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-sm-12">
-                    <center><u><b>RV</b></u></center>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtRVFArea">RV Fractional Area</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtRVFArea">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtRvotFrac">RVOT FRACTION</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtRvotFrac">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtFreeWall">FREE WALL</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtFreeWall">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtRVEF">EF</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtRVEF">
-                </div>
-                <div class="col-md-4">
-                    <label>%</label>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtTapse">TAPSE</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px;">
-                    <input type="text" class="form-control" id="txtTapse">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
-
-        <!-- ======================================================================== -->
-        <div class="container" style="background-color: white; font-size: 13px; border: outset">
-        <div class="row">
-        <div class="col-md-12" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-sm-12">
-                    <center><u><b>AORTA</b></u></center>
-                </div>
-            </div>
-        </div>
-        </div>
-
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtRoot">ROOT</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px;">
-                    <input type="text" class="form-control" id="txtRoot">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtSinJunction">SINOTUBULAR JUNCTION</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px;">
-                    <input type="text" class="form-control" id="txtSinJunction">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtAscAorta">ASCENDING AORTA</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px;">
-                    <input type="text" class="form-control" id="txtAscAorta">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtArch">ARCH</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px;">
-                    <input type="text" class="form-control" id="txtArch">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtDesAorta">DESCENDING AORTA</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px;">
-                    <input type="text" class="form-control" id="txtDesAorta">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtAbdAorta">ABDOMINAL AORTA</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px;">
-                    <input type="text" class="form-control" id="txtAbdAorta">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtMacs">MACS</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px;">
-                    <input type="text" class="form-control" id="txtMacs">
-                </div>
-                <div class="col-md-4">
-                    <label>mm</label>
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
-
-        <!-- ===============================MITRAL VALUE AORTIC VALVE============== -->
-
-        <div class="container" style="background-color: white; font-size: 13px; border: outset">
-        <div class="row">
-        <div class="col-md-12" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-sm-12">
-                    <center><u><b>Mitral valve</b></u></center>
-                </div>
-            </div>
-        </div>
-        </div>
-
-
-        <div class="col-md-4">
-        <label>DT:</label>
-        <select class="form-control" ng-model="patient.wardOpd">
-            <option value="">Select</option>
-            <option value="E>A">E>A</option>
-            <option value="A>E">A>E</option>
-            <option value="E>>A">E>>A</option>
-            <option value="E=A">E=A</option>
-            <option value="E only">E only</option>
-
-        </select>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-        <div class="form-group form-inline">
-            <div class="col-md-4">
-                <label for="txtPV">PV</label>
-            </div>
-            <div class="col-md-4" style="padding-bottom: 12px;">
-                <input type="text" class="form-control" id="txtPV">
-            </div>
-            <div class="col-md-4">
-                <label>m/s</label>
-            </div>
-        </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-        <div class="form-group form-inline">
-            <div class="col-md-4">
-                <label for="txtMVE">MV-E</label>
-            </div>
-            <div class="col-md-4" style="padding-bottom: 12px;">
-                <input type="text" class="form-control" id="txtMVE">
-            </div>
-            <div class="col-md-4">
-                <label>m/s</label>
-            </div>
-        </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-        <div class="form-group form-inline">
-            <div class="col-md-4">
-                <label for="txtIVRT">IVRT</label>
-            </div>
-            <div class="col-md-4" style="padding-bottom: 12px;">
-                <input type="text" class="form-control" id="txtIVRT">
-            </div>
-            <div class="col-md-4">
-                <label>ml</label>
-            </div>
-        </div>
-        </div>
-
-
-        <div class="col-md-6" style="padding-top: 1%">
-        <div class="form-group form-inline">
-            <div class="col-md-4">
-                <label for="txtIVCT">IVCT</label>
-            </div>
-            <div class="col-md-4" style="padding-bottom: 12px;">
-                <input type="text" class="form-control" id="txtIVCT">
-            </div>
-            <div class="col-md-4">
-                <label>ml</label>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtMVObyPHT">MVO by PHT</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px;">
-                    <input type="text" class="form-control" id="txtMVObyPHT">
-                </div>
-                <div class="col-md-4">
-                    <label></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtMVObyECHO">MVO by 2D ECHO</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px;">
-                    <input type="text" class="form-control" id="txtMVObyECHO">
-                </div>
-                <div class="col-md-4">
-                    <label>cm</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtMIMPG">MPG</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px;">
-                    <input type="text" class="form-control" id="txtMIMPG">
-                </div>
-                <div class="col-md-4">
-                    <label>mmHg</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label for="txtMIPPG">PPG</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px;">
-                    <input type="text" class="form-control" id="txtMIPPG">
-                </div>
-                <div class="col-md-4">
-                    <label>mmHg</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6" style="padding-top: 1%">
-                <div class="form-group form-inline">
-                    <div class="col-md-4">
-                        <label for="txtMVPros">Prosthetic Valve</label>
+            <div class="container" style="background-color: white; font-size: 13px; border: outset;">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%;">
+                        <div class="form-group">
+                            <div class="col-md-12" style="font-size: 20px; font-weight: 700; color: #333; padding-left: 300px;">
+                                RV
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-4" style="padding-bottom: 12px;">
-                        <input type="text" class="form-control" id="txtMVPros">
+                </div>
+            
+                <!-- Increased spacing between rows by changing gy-1 to gy-4 -->
+                <div class="row gx-3 gy-4">
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" for="txtRVFArea" style="text-decoration: none;">RV Fractional Area:</label>
+                        <input type="text" class="form-control me-2" ng-model="RVFArea">
+                        <span>mm</span>
                     </div>
-                    <div class="col-md-4">
-                        
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" for="txtRvotFrac" style="text-decoration: none;">RVOT FRACTION:</label>
+                        <input type="text" class="form-control me-2" ng-model="RvotFrac">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" for="txtFreeWall" style="text-decoration: none;">FREE WALL:</label>
+                        <input type="text" class="form-control me-2" ng-model="FreeWall">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" for="txtRVEF" style="text-decoration: none;">EF:</label>
+                        <input type="text" class="form-control me-2" ng-model="txtRVEF">
+                        <span>%</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" for="txtTapse" style="text-decoration: none;">TAPSE:</label>
+                        <input type="text" class="form-control me-2" ng-model="Tapse">
+                        <span>mm</span>
                     </div>
                 </div>
             </div>
-        </div>
-
-
-
-        </div>
-        </div>
-
-
-        <div class="container" style="background-color: white; font-size: 13px; border: outset">
-        <div class="row">
-        <div class="col-md-12" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-sm-12">
-                    <center><u><b>AORTIC Valve</b></u></center>
+            
+            
+            <div class="container" style="background-color: white; font-size: 13px; border: outset; width: 80%; margin: 20px auto; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%;">
+                        <div class="form-group">
+                            <!-- Updated Header Design -->
+                            <div class="col-md-12" style="font-size: 20px; font-weight: 700; color: #333; padding-left: 300px;">
+                                AORTA
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Increased spacing between rows by using gy-4 -->
+                <div class="row gx-3 gy-4">
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 2%;">
+                        <label class="me-2 fw-bold" for="txtRoot" style="text-decoration: none;">ROOT:</label>
+                        <input type="text" class="form-control me-2" ng-model="Root">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 6%;">
+                        <label class="me-2 fw-bold" for="txtSinJunction" style="text-decoration: none;">SINOTUBULAR JUNCTION:</label>
+                        <input type="text" class="form-control me-2" ng-model="SinJunction">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 6%;">
+                        <label class="me-2 fw-bold" for="txtAscAorta" style="text-decoration: none;">ASCENDING AORTA:</label>
+                        <input type="text" class="form-control me-2" ng-model="AscAorta">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 2%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" for="txtArch" style="text-decoration: none;">ARCH:</label>
+                        <input type="text" class="form-control me-2" ng-model="Arch">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 6%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" for="txtDesAorta" style="text-decoration: none;">DESCENDING AORTA:</label>
+                        <input type="text" class="form-control me-2" ng-model="DesAorta">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 6%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" for="txtAbdAorta" style="text-decoration: none;">ABDOMINAL AORTA:</label>
+                        <input type="text" class="form-control me-2" ng-model="AbdAorta">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 2%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" for="txtMacs" style="text-decoration: none;">MACS:</label>
+                        <input type="text" class="form-control me-2" ng-model="Macs">
+                        <span>mm</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
+            
+            <!-- ===============================MITRAL VALUE AORTIC VALVE============== -->
 
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label>PV</label>
+            <div class="container" style="background-color: white; font-size: 13px; border: outset;">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%;">
+                        <div class="form-group">
+                            <div class="col-md-12 text-center" style="font-size: 20px; font-weight: 700; color: #333; white-space: nowrap;padding-left: 500%;">
+                                MITRAL VALVE
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtAOPV" style="width:100%">
-                </div>
-                <div class="col-md-4">
-                    <label>m/s</label>
+            
+                <!-- Increased spacing between rows by using gy-4 for uniformity -->
+                <div class="row gx-3 gy-4">
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">DT:</label>
+                        <select class="form-control me-2" ng-model="patient.wardOpd">
+                            <option value="">Select</option>
+                            <option value="E>A">E>A</option>
+                            <option value="A>E">A>E</option>
+                            <option value="E>>A">E>>A</option>
+                            <option value="E=A">E=A</option>
+                            <option value="E only">E only</option>
+                        </select>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">PV:</label>
+                        <input type="text" class="form-control me-2" ng-model="PV">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">MV-E:</label>
+                        <input type="text" class="form-control me-2" ng-model="MVE">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">IVRT:</label>
+                        <input type="text" class="form-control me-2" ng-model="IVRT">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">IVCT:</label>
+                        <input type="text" class="form-control me-2" ng-model="IVCT">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">MVO by PHT:</label>
+                        <input type="text" class="form-control me-2" ng-model="MVObyPHT">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">MVO by 2D ECHO:</label>
+                        <input type="text" class="form-control me-2" ng-model="MVObyECHO">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">MPG:</label>
+                        <input type="text" class="form-control me-2" ng-model="MIMPG">
+                        <span>mmHg</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">PPG:</label>
+                        <input type="text" class="form-control me-2" ng-model="MIPPG">
+                        <span>mmHg</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">Prosthetic Valve:</label>
+                        <input type="text" class="form-control me-2" ng-model="MVPros">
+                        <span>Type</span>
+                    </div>
                 </div>
             </div>
-        </div>
+            
 
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label>MACS</label>
+            <div class="container" style="background-color: white; font-size: 13px; border: outset;">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%;">
+                        <div class="form-group">
+                            <div class="col-md-12 text-center" style="font-size: 20px; font-weight: 700; color: #333; white-space: nowrap;padding-left: 500%;">
+                                AORTIC VALVE
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtAOMacs" style="width:100%">
-                </div>
-                <div class="col-md-4">
-                    <label>cm</label>
+            
+                <!-- Increased spacing between rows by using gy-4 for uniformity -->
+                <div class="row gx-3 gy-4">
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">AVA:</label>
+                        <input type="text" class="form-control me-2" ng-model="AVA">
+                        <span>cm²</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">Vmax:</label>
+                        <input type="text" class="form-control me-2" ng-model="Vmax">
+                        <span>m/s</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">PG:</label>
+                        <input type="text" class="form-control me-2" ng-model="PG">
+                        <span>mmHg</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">AI Grade:</label>
+                        <select class="form-control me-2" ng-model="AIG">
+                            <option value="">Select</option>
+                            <option value="Mild">Mild</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Severe">Severe</option>
+                        </select>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">AI Jet Width:</label>
+                        <input type="text" class="form-control me-2" ng-model="AIJetWidth">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%; padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">AI PHT:</label>
+                        <input type="text" class="form-control me-2" ng-model="AIPHT">
+                        <span>ms</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label>PPG</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtAOPPG" style="width:100%">
-                </div>
-                <div class="col-md-4">
-                    <label>mmHg</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label>MPG</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtAOMPG" style="width:100%">
-                </div>
-                <div class="col-md-4">
-                    <label>mmHg</label>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label>ET</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtAOET" style="width:100%">
-                </div>
-                <div class="col-md-4">
-                    <label>ms</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label>VTI</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtAOVTI" style="width:100%">
-                </div>
-                <div class="col-md-4">
-                    <label>cm</label>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    <label>Prosthetic Valve</label>
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px">
-                    <input type="text" class="form-control" id="txtAOProcs" style="width:100%">
-                </div>
-                <div class="col-md-4"></div>
-            </div>
-        </div>
-        </div>
-        </div>
-
+            
         <!-- ================================TRICUSPID VALVE==================================== -->
-        <div class="container" style="background-color: white; font-size: 13px; border: outset">
-        <div class="row">
-        <div class="col-md-12" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-sm-12">
-                    <center> <u><b> TRICUSPID VALVE </b></u></center>
+            <div class="container" style="background-color: white; font-size: 13px; border: outset;">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%;">
+                        <div class="form-group">
+                            <div class="col-md-12 text-center" style="font-size: 20px; font-weight: 700; color: #333; white-space: nowrap;padding-left: 300%;">
+                                TRICUSPID VALVE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Increased spacing between rows by using gy-4 for uniformity -->
+                <div class="row gx-3 gy-4">
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">DT:</label>
+                        <input type="text" class="form-control me-2" ng-model="TRDT">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">TRICUSPID ANNULUS DIMENSION:</label>
+                        <input type="text" class="form-control me-2" ng-model="TRANNDIM">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">PV:</label>
+                        <input type="text" class="form-control me-2" ng-model="TRPV">
+                        <span>m/s</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">TRICUSPID VALVE AREA BY PHT:</label>
+                        <input type="text" class="form-control me-2" ng-model="TRVALAR">
+                        <span>cm<sup>2</sup></span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">TV-E:</label>
+                        <input type="text" class="form-control me-2" ng-model="TRTVE">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">RV MPI:</label>
+                        <input type="text" class="form-control me-2" ng-model="TRRVMPI">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">TV-A:</label>
+                        <input type="text" class="form-control me-2" ng-model="TRTVA">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">MPG:</label>
+                        <input type="text" class="form-control me-2" ng-model="TRMPG">
+                        <span>mmHg</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">PPG:</label>
+                        <input type="text" class="form-control me-2" ng-model="TRPPG">
+                        <span>mmHg</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">Prosthetic Valve:</label>
+                        <input type="text" class="form-control me-2" ng-model="TRPROS">
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">RVSP=</label>
+                        <input type="text" class="form-control me-2" ng-model="TRRVSP">
+                        <span>+RAP mmHg</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">DT</div>
-                <div class="col-md-4"><input class="form-control" type="text" id="txtTRDT" style="width: 100%"></div>
-                <div class="col-md-4">mm</div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">TRICUSPID ANNULUS DIMENSION</div>
-                <div class="col-md-4"><input class="form-control" type="text" id="txtTRANNDIM" style="width: 100%"></div>
-                <div class="col-md-4">mm</div>
-            </div>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">PV</div>
-                <div class="col-md-4"><input class="form-control" type="text" id="txtTRPV" style="width: 100%"></div>
-                <div class="col-md-4">m/s</div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">TRICUSPID VALVE AREA BY PHT</div>
-                <div class="col-md-4"><input class="form-control" type="text" id="txtTRVALAR" style="width: 100%"></div>
-                <div class="col-md-4">cm<sup>2</sup></div>
-            </div>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">TV-E</div>
-                <div class="col-md-4"><input class="form-control" type="text" id="txtTRTVE" style="width: 100%"></div>
-                <div class="col-md-4">mm</div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">RV MPI</div>
-                <div class="col-md-4"><input class="form-control" type="text" id="TxtTRRVMPI" style="width: 100%"></div>
-                <div class="col-md-4">mm</div>
-            </div>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">TV-A</div>
-                <div class="col-md-4"><input class="form-control" type="text" id="txtTRTVA" style="width: 100%"></div>
-                <div class="col-md-4">mm</div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">MPG</div>
-                <div class="col-md-4"><input class="form-control" type="text" id="txtTRMPG" style="width: 100%"></div>
-                <div class="col-md-4">mmHg</div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">PPG</div>
-                <div class="col-md-4"><input class="form-control" type="text" id="txtTRPPG" style="width: 100%"></div>
-                <div class="col-md-4">mmHg</div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">Prosthetic Valve</div>
-                <div class="col-md-4" style="padding-bottom: 12px"><input class="form-control" type="text" id="txtTRPROS" style="width: 100%"></div>
-            </div>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">RVSP=</div>
-                <div class="col-md-4" style="padding-bottom: 12px"><input class="form-control" type="text" id="txtTRRVSP" style="width: 100%"></div>
-                <div class="col-md-4">+RAP mmHg</div>
-            </div>
-        </div>
-        </div>
-        </div>
-
-
-
+            
         <!-- =======================PULMONARY VALVE=========================== -->
-        <div class="container" style="background-color: white; font-size: 13px; border: outset">
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4"></div>
-                <div class="col-md-6">
-                    <b><u>PULMONARY VALVE</u></b>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    Pulmonary Annulus
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtPULAN" style="width: 100%;">
-                </div>
-                <div class="col-md-4">
-                    mm
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    PV
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtPULPV" style="width: 100%;">
-                </div>
-                <div class="col-md-4">
-                    m/s
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    Pulmonary Dimension
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtPULDI" style="width: 100%;">
-                </div>
-                <div class="col-md-4">
-                    mm
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    AT
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtPULAT" style="width: 100%;">
-                </div>
-                <div class="col-md-4">
-                    ms
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    MPA
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtPULMPA" style="width: 100%;">
-                </div>
-                <div class="col-md-4">
-                    mm
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    PPG
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtPPG" style="width: 100%;">
-                </div>
-                <div class="col-md-4">
-                    mmHg
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    LPA
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtLPA" style="width: 100%;">
-                </div>
-                <div class="col-md-4">
-                    mm
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    MPG
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtPULMPG" style="width: 100%;">
-                </div>
-                <div class="col-md-4">
-                    mmHg
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    RPA
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtPULRPA" style="width: 100%;">
-                </div>
-                <div class="col-md-4">
-                    mm
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    Prosthetic Valve
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtPULPROS" style="width: 100%;">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    VELOCITY-LPA
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" id="txtPULVELLPA" style="width: 100%;">
-                </div>
-                <div class="col-md-4">
-                    m/s
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4"></div>
-                <div class="col-md-4"></div>
-            </div>
-        </div>
-        <div class="col-md-6" style="padding-top: 1%">
-            <div class="form-group form-inline">
-                <div class="col-md-4">
-                    VELOCITY-RPA
-                </div>
-                <div class="col-md-4" style="padding-bottom: 12px">
-                    <input type="text" class="form-control" id="txtPULVELRPA" style="width: 100%;">
-                </div>
-                <div class="col-md-4">
-                    m/s
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
-
-
-        <div class="container" style="background-color: white; font-size: 13px; border: outset">
-            <div class="row">
-                <div class="col-md-12" style="padding-top: 1%">
-                    <div class="form-group form-inline">
-                        <div class="col-sm-12">
-                            <center><u><b>RAP</b></u></center>
+        <!-- Pulmonary Valve and RAP Sections -->
+<!-- Pulmonary Valve Section -->
+            <div class="container" style="background-color: white; font-size: 13px; border: outset;">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%;">
+                        <div class="form-group">
+                            <div class="col-md-12 text-center" style="font-size: 20px; font-weight: 700; color: #333; white-space: nowrap;padding-left: 300%;">
+                                PULMONARY VALVE
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6" style="padding-top: 1%">
-                    <div class="form-group form-inline">
-                        <div class="col-md-4">
-                            IVC-MAX/MIN
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="txtRAPIVC" style="width: 100%;">
-                        </div>
-                        <div class="col-md-4">
-                            mm
-                        </div>
+
+                <!-- Consistent spacing between rows using gy-4 -->
+                <div class="row gx-3 gy-4">
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">Pulmonary Annulus:</label>
+                        <input type="text" class="form-control me-2" ng-model="PULAN">
+                        <span>mm</span>
                     </div>
-                </div>
-                <div class="col-md-6" style="padding-top: 1%">
-                    <div class="form-group form-inline">
-                        <div class="col-md-4">
-                            HEPATIC VEIN S
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="txtHEPS" style="width: 100%;">
-                        </div>
-                        <div class="col-md-4">
-                            m/s
-                        </div>
+
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">PV:</label>
+                        <input type="text" class="form-control me-2" ng-model="PULPV">
+                        <span>m/s</span>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6" style="padding-top: 1%">
-                    <div class="form-group form-inline">
-                        <div class="col-md-4">
-                            HEPATIC VEIN D
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="txtHEPD" style="width: 100%;">
-                        </div>
-                        <div class="col-md-4">
-                            m/s
-                        </div>
+
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">Remarks:</label>
+                        <input type="text" class="form-control me-2" ng-model="PULRemark">
                     </div>
-                </div>
-                <div class="col-md-6" style="padding-top: 1%">
-                    <div class="form-group form-inline">
-                        <div class="col-md-4">
-                            REVERSAL FLOW VELOCITY
-                        </div>
-                        <div class="col-md-4" style="padding-bottom: 12px">
-                            <input type="text" class="form-control" id="txtFLOW" style="width: 100%;">
-                        </div>
-                        <div class="col-md-4">
-                            m/s
-                        </div>
+
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">Pulmonary Dimension:</label>
+                        <input type="text" class="form-control me-2" ng-model="PULDI">
+                        <span>mm</span>
+                    </div>
+
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">AT:</label>
+                        <input type="text" class="form-control me-2" ng-model="PULAT">
+                        <span>ms</span>
+                    </div>
+
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">Condition:</label>
+                        <select class="form-select me-2" ng-model="selPUL">
+                            <option value="">Select Condition</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Abnormal">Abnormal</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">MPA:</label>
+                        <input type="text" class="form-control me-2" ng-model="PULMPA">
+                        <span>mm</span>
+                    </div>
+
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">PPG:</label>
+                        <input type="text" class="form-control me-2" ng-model="PPG">
+                        <span>mmHg</span>
                     </div>
                 </div>
             </div>
-        </div>
+
+        <!-- RAP Section -->
+            <div class="container" style="background-color: white; font-size: 13px; border: outset;">
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 1%;padding-left: 45%;">
+                        <div class="form-group">
+                            <div class="col-md-12 text-center" style="font-size: 20px; font-weight: 700; color: #333; white-space: nowrap;">
+                                RAP
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Consistent spacing between rows using gy-4 -->
+                <div class="row gx-3 gy-4">
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">IVC-MAX/MIN:</label>
+                        <input type="text" class="form-control me-2" ng-model="RAPIVC">
+                        <span>mm</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">Hepatic Vein S:</label>
+                        <input type="text" class="form-control me-2" ng-model="HEPS">
+                        <span>m/s</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">Hepatic Vein D:</label>
+                        <input type="text" class="form-control me-2" ng-model="HEPD">
+                        <span>m/s</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">Reversal Flow Velocity:</label>
+                        <input type="text" class="form-control me-2" ng-model="FLOW">
+                        <span>m/s</span>
+                    </div>
+            
+                    <div class="col-md-6 d-flex align-items-center mb-3" style="padding-left: 4%;padding-top: 2%;">
+                        <label class="me-2 fw-bold" style="text-decoration: none;">Remarks:</label>
+                        <input type="text" class="form-control me-2" ng-model="RAPRemark">
+                    </div>
+                </div>
+            </div>
+        
+
         
         <!--  "Type of Heart Disease" -->
         <div class="container" style="background-color: white; font-size: 13px; border: outset">
@@ -1445,7 +909,7 @@
                             <label for="txtOveralFindings">Overall Findings</label>
                         </div>
                         <div class="col-md-10" style="padding-bottom: 12px">
-                            <textarea class="form-control" id="txtOveralFindings" style="width: 88%;" rows="4"></textarea>
+                            <textarea class="form-control" id="txtOveralFindings" style="width: 500%;height: 109px;" rows="4"></textarea>
                         </div>
                     </div>
                 </div>
@@ -3307,173 +2771,88 @@
                 <div style="display: flex; align-items: center;">
                     <div style="flex: 1;">
                         <b><u>
-                            <label style="font-weight: bold;">CARDIOMYOPATHY TYPES</label></u></b>
+                                <label style="font-weight: bold;">CARDIOMYOPATHY TYPES</label></u></b>
                     </div>
                 </div>
             </div>
-    
+        
             <!-- Checkboxes -->
             <div style="margin-bottom: 10px;">
                 <div style="display: flex; align-items: center;">
                     <div style="flex: 1;">
-                        <input type="checkbox" id="CheckHCM" style="font-weight: 100;" onchange="togglePopup('Card_HCM')" />
+                        <input type="checkbox" id="CheckHCM" style="font-weight: 100;" onchange="toggleVisibility('Card_HCM')" />
                         <label for="CheckHCM">HCM</label>
                     </div>
                 </div>
+                <div id="Card_HCM" style="display: none; margin-left: 20px; padding: 10px; border-left: 3px solid #ccc;">
+                    <b><u>HCM</u></b>
+                    <div style="margin-top: 10px;">
+                        <label style="font-weight: bold;">IVS/PW RATIO</label>
+                        <input type="text" style="margin-left: 10px;" />
+                        <label style="margin-left: 10px;">(>1.3)</label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <label style="font-weight: bold;">LVOT PPG</label>
+                        <input type="text" style="margin-left: 10px;" />
+                        <label style="margin-left: 10px;">mmHg</label>
+                    </div>
+                </div>
             </div>
+        
             <div style="margin-bottom: 10px;">
                 <div style="display: flex; align-items: center;">
                     <div style="flex: 1;">
-                        <input type="checkbox" id="CheckRCM" style="font-weight: 100;" onchange="togglePopup('Card_RCM')" />
+                        <input type="checkbox" id="CheckRCM" style="font-weight: 100;" onchange="toggleVisibility('Card_RCM')" />
                         <label for="CheckRCM">RCM</label>
                     </div>
                 </div>
+                <div id="Card_RCM" style="display: none; margin-left: 20px; padding: 10px; border-left: 3px solid #ccc;">
+                    <b><u>RCM</u></b>
+                    <div style="margin-top: 10px;">
+                        <label style="font-weight: bold;">IVS E'</label>
+                        <input type="text" style="margin-left: 10px;" />
+                        <label style="margin-left: 10px;">m/s</label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <label style="font-weight: bold;">IVS A'</label>
+                        <input type="text" style="margin-left: 10px;" />
+                        <label style="margin-left: 10px;">m/s</label>
+                    </div>
+                </div>
             </div>
+        
             <div style="margin-bottom: 10px;">
                 <div style="display: flex; align-items: center;">
                     <div style="flex: 1;">
-                        <input type="checkbox" id="CheckDCM" style="font-weight: 100;" onchange="togglePopup('Card_DCM')" />
+                        <input type="checkbox" id="CheckDCM" style="font-weight: 100;" onchange="toggleVisibility('Card_DCM')" />
                         <label for="CheckDCM">DCM</label>
                     </div>
                 </div>
+                <div id="Card_DCM" style="display: none; margin-left: 20px; padding: 10px; border-left: 3px solid #ccc;">
+                    <b><u>DCM</u></b>
+                    <div style="margin-top: 10px;">
+                        <label style="font-weight: bold;">IVS TO PW DELAY/M-MODE</label>
+                        <input type="text" style="margin-left: 10px;" />
+                        <label style="margin-left: 10px;">ms</label>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <label style="font-weight: bold;">Q TO PV</label>
+                        <input type="text" style="margin-left: 10px;" />
+                        <label style="margin-left: 10px;">ms</label>
+                    </div>
+                </div>
             </div>
         </div>
-    
-        <!-- Popup for HCM -->
-        <div id="Card_HCM" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000; width: 80%; max-width: 600px;">
-            <div style="background-color: white; font-size: 13px; border: outset; padding: 10px;">
-                <div style="margin-bottom: 10px;">
-                    <div style="display: flex; align-items: center;">
-                        <div style="flex: 1;">
-                            <b><u>
-                                <label style="font-weight: bold;">HCM</label></u></b>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin-bottom: 10px;">
-                    <div style="display: flex; align-items: center;">
-                        <div style="flex: 1;">
-                            <label style="font-weight: bold;">IVS/PW RATIO</label>
-                            <input type="text" style="margin-left: 10px;" />
-                            <label style="margin-left: 10px;">(>1.3)</label>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin-bottom: 10px;">
-                    <div style="display: flex; align-items: center;">
-                        <div style="flex: 1;">
-                            <label style="font-weight: bold;">LVOT PPG</label>
-                            <input type="text" style="margin-left: 10px;" />
-                            <label style="margin-left: 10px;">mmHg</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <button style="font-size: 16px; padding: 10px 20px;" onclick="closePopup('Card_HCM')">Close</button>
-            </div>
-        </div>
-    
-        <!-- Popup for RCM -->
-        <div id="Card_RCM" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000; width: 80%; max-width: 600px;">
-            <div style="background-color: white; font-size: 13px; border: outset; padding: 10px;">
-                <div style="margin-bottom: 10px;">
-                    <div style="display: flex; align-items: center;">
-                        <div style="flex: 1;">
-                            <b><u>
-                                <label style="font-weight: bold;">RCM</label></u></b>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin-bottom: 10px;">
-                    <div style="display: flex; align-items: center;">
-                        <div style="flex: 1;">
-                            <label style="font-weight: bold;">IVS E'</label>
-                            <input type="text" style="margin-left: 10px;" />
-                            <label style="margin-left: 10px;">m/s</label>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin-bottom: 10px;">
-                    <div style="display: flex; align-items: center;">
-                        <div style="flex: 1;">
-                            <label style="font-weight: bold;">IVS A'</label>
-                            <input type="text" style="margin-left: 10px;" />
-                            <label style="margin-left: 10px;">m/s</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <button style="font-size: 16px; padding: 10px 20px;" onclick="closePopup('Card_RCM')">Close</button>
-            </div>
-        </div>
-    
-        <!-- Popup for DCM -->
-        <div id="Card_DCM" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000; width: 80%; max-width: 600px;">
-            <div style="background-color: white; font-size: 13px; border: outset; padding: 10px;">
-                <div style="margin-bottom: 10px;">
-                    <div style="display: flex; align-items: center;">
-                        <div style="flex: 1;">
-                            <b><u>
-                                <label style="font-weight: bold;">DCM</label></u></b>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin-bottom: 10px;">
-                    <div style="display: flex; align-items: center;">
-                        <div style="flex: 1;">
-                            <label style="font-weight: bold;">IVS TO PW DELAY/M-MODE</label>
-                            <input type="text" style="margin-left: 10px;" />
-                            <label style="margin-left: 10px;">ms</label>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin-bottom: 10px;">
-                    <div style="display: flex; align-items: center;">
-                        <div style="flex: 1;">
-                            <label style="font-weight: bold;">Q TO PV</label>
-                            <input type="text" style="margin-left: 10px;" />
-                            <label style="margin-left: 10px;">ms</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <button style="font-size: 16px; padding: 10px 20px;" onclick="closePopup('Card_DCM')">Close</button>
-            </div>
-        </div>
-    
-        <!-- Overlay -->
-        <div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
-    
         <script>
-            // Function to toggle popup visibility
-            function togglePopup(popupId) {
-                const popup = document.getElementById(popupId);
-                const overlay = document.getElementById('overlay');
-                const checkbox = document.querySelector(`input[onchange*="${popupId}"]`);
-    
-                if (checkbox.checked) {
-                    popup.style.display = 'block';
-                    overlay.style.display = 'block';
-                } else {
-                    popup.style.display = 'none';
-                    overlay.style.display = 'none';
-                }
-            }
-    
-            // Function to close popup
-            function closePopup(popupId) {
-                const popup = document.getElementById(popupId);
-                const overlay = document.getElementById('overlay');
-                const checkbox = document.querySelector(`input[onchange*="${popupId}"]`);
-    
-                popup.style.display = 'none';
-                overlay.style.display = 'none';
-                checkbox.checked = false; // Uncheck the checkbox
+            // Function to toggle visibility of sections
+            function toggleVisibility(sectionId) {
+                const section = document.getElementById(sectionId);
+                const checkbox = document.querySelector(`input[onchange*="${sectionId}"]`);
+                section.style.display = checkbox.checked ? 'block' : 'none';
             }
         </script>
+        
+        
 
          <!-- ============================other heart disease===================================
           =============================================================================================
